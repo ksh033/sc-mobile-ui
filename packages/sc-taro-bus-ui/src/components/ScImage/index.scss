@@ -1,0 +1,69 @@
+
+.van-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.van-image--round {
+  overflow: hidden;
+}
+.van-image--round .van-image__img {
+  border-radius: inherit;
+}
+.van-image__error,
+.van-image__img,
+.van-image__loading {
+  width: 100%;
+  height: 100%;
+}
+.van-image__error,
+.van-image__loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #969799;
+  font-size: 14px;
+  background-color: #f7f8fa;
+}
+
+.sc-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.sc-image .van-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.sc-image-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #dddddd;
+}
+.sc-loading-img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.van-image {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.van-image__error,
+.van-image__img,
+.van-image__loading {
+  display: block;
+}

@@ -1,0 +1,21 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+.com-magic-cube {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+
+  &-warp {
+    position: relative;
+    width: 100%;
+  }
+
+  &-item {
+    position: absolute;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+  }
+}

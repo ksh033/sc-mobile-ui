@@ -1,0 +1,11 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-enter-shop-prefix: "com-enter-shop";
+
+.#{$com-enter-shop-prefix} {
+  position: relative;
+
+  .nut-cell {
+    margin: 0;
+  }
+}

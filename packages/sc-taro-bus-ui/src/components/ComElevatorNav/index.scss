@@ -1,0 +1,81 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-elevator-nav-prefix: "com-elevator-nav";
+
+.#{$com-elevator-nav-prefix} {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  .nut-tabs__titles {
+    padding: 0;
+  }
+
+  .nut-tabs__titles-item__text {
+    font-size: 14px;
+  }
+
+  &-item {
+    position: relative;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 4px;
+    color: #646566;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+  &_text {
+    position: relative;
+
+    .nut-tabs__titles-item {
+      height: 100%;
+    }
+    .nut-tabs__titles-item--active .nut-tabs__titles-item__line {
+      bottom: 2px;
+    }
+
+    &-box {
+      position: relative;
+      height: 28px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &_text_image {
+    position: relative;
+
+    .nut-tabs__titles-item {
+      flex-direction: column;
+    }
+    .nut-tabs__titles-item__text {
+      height: 14px;
+      line-height: 14px;
+    }
+
+    &__image {
+      width: 32px;
+      height: 32px;
+      margin: 6px 0;
+    }
+  }
+
+  &_image {
+    position: relative;
+
+    &__image {
+      width: 52px;
+      height: 52px;
+      vertical-align: middle;
+    }
+  }
+}

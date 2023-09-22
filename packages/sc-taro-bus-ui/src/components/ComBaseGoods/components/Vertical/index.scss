@@ -1,0 +1,184 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$my-class-prefix: "com-goods-item";
+
+.#{$my-class-prefix}-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  position: relative;
+  width: 100%;
+
+  &__image {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+
+    &-container {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-content {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    &_name {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      line-height: 1;
+      margin-bottom: 8px;
+
+      &__text {
+        line-height: 1.1;
+        @extend %font-base-title_text;
+        width: 100%;
+      }
+    }
+
+    &_desc {
+      margin-bottom: 14px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+
+      &__text {
+        @extend %font-sub-title_text;
+        width: 100%;
+        line-height: 1;
+      }
+    }
+
+    &_label {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+  }
+
+  &_bar {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      line-height: 1;
+    }
+
+    &-valid {
+      @extend %font-extra_text;
+      font-size: 12px;
+    }
+  }
+
+  &_bar-vertical {
+    flex-direction: column;
+  }
+
+  &_price {
+    @extend %font-price;
+
+    &__unit {
+      margin-right: 2px;
+      font-size: 12px;
+    }
+  }
+
+  &_mark-price {
+    margin-left: 6px;
+    @extend %font-mark-price;
+  }
+
+  &_unit-price {
+    margin-top: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__text {
+      font-size: 24px;
+      @extend %font-extra_text;
+    }
+  }
+
+  &-circle {
+    border-radius: 10px;
+
+    .#{$my-class-prefix}-vertical__image {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .#{$my-class-prefix}-vertical__image-container {
+      border-radius: 10px 10px 0 0;
+    }
+  }
+}
+
+.#{$my-class-prefix}-vertical-small {
+  .#{$my-class-prefix}_promot {
+    padding: 0 2px;
+    border-radius: 4px;
+    height: 10px;
+    font-size: 8px;
+    font-weight: 400;
+    margin: 0 2px 0 0;
+    line-height: 1;
+  }
+
+  .#{$my-class-prefix}-vertical-content {
+    padding: 4px;
+    &_name {
+      margin-bottom: 6px;
+      &__text {
+        font-size: 10px;
+      }
+    }
+
+    &_desc {
+      margin-bottom: 4px;
+      &__text {
+        font-size: 8px;
+      }
+    }
+  }
+
+  .#{$my-class-prefix}-vertical_bar {
+    &-left {
+      flex-direction: column;
+    }
+  }
+
+  .#{$my-class-prefix}-vertical_price {
+    font-size: 12px;
+
+    &__unit {
+      font-size: 10px;
+    }
+  }
+
+  .#{$my-class-prefix}-vertical_mark-price {
+    margin-left: 0;
+    margin-top: 4px;
+    font-size: 8px;
+  }
+}

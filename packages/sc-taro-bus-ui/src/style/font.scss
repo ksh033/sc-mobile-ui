@@ -1,0 +1,170 @@
+@import './theme.scss';
+
+/* 主色 标题 fontsize 28 */
+%font-active-title_text{
+  font-family: $sc-font-family;
+  font-size: $sc-font-size-base;
+  font-weight: $sc-font-weight-blod;
+  color: $sc-dominant-color;
+}
+
+/* 主标题样式 - 黑色粗体 fontsize 28 */
+%font-base-title_text {
+  font-family: $sc-font-family;
+  font-size: $sc-font-size-base;
+  font-weight: $sc-font-weight-blod;
+  color: $sc-color-text-base;
+}
+
+/* 副标题样式 - 灰色正常粗细 fontsize 24 */
+%font-sub-title_text {
+  font-family: $sc-font-family;
+  font-size: $sc-font-size-sm;
+  font-weight: $sc-font-weight-normal;
+  color: $sc-color-extra-text;
+}
+
+
+/* 价格样式 fontsize 34 */
+%font-price{
+  font-size: $sc-font-size-xl;
+  font-family: Futura;
+  font-weight: $sc-font-weight-blod;
+  color: $sc-color-price;
+}
+
+/* 划线价格样式 fontsize 24 */
+%font-mark-price{
+  font-size: $sc-font-size-sm;
+  font-family: $sc-font-family;
+  font-weight: 400;
+  color: $sc-color-gray-text;
+}
+
+/* 标签样式 fontsize 20 */
+%font-label-tag{
+  font-size: $sc-font-size-xs;
+  font-family: $sc-font-family;
+  font-weight: $sc-font-weight-normal;
+}
+/*************************font-weight: 400 ******************************************/
+/* #FFA500 主色调 文本样式 */
+%font-dominant_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-dominant-color;
+}
+/* #FFF 白色 文本样式 */
+%font-white_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-text-base-inverse;
+}
+/* #333333 黑色 文本样式 */
+%font-black_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-text-base;
+}
+/* #808080 文本样式 */
+%font-extra_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-extra-text;
+}
+/* #bfbfbf 文本样式*/
+%font-gray_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-gray-text;
+}
+/* 蓝色 #397EFB */
+%font-blue_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-blue-text;
+}
+/* #FF3346 红色 粗体 文本样式*/
+%font-red_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-normal;
+  color: $sc-color-red-text;
+}
+
+/*************************font-weight: 500 ******************************************/
+/* #FFA500  主色调 稍粗 文本样式 */
+%font-dominant_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-dominant-color;
+}
+/* #fff 白色 稍粗 文本样式 */
+%font-white_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-color-text-base-inverse;
+}
+/* #333333 黑色 稍粗 文本样式 */
+%font-black_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-color-text-base;
+}
+/* #808080 稍粗 文本样式 */
+%font-extra_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-color-extra-text;
+}
+/* #bfbfbf 稍粗 文本样式*/
+%font-gray_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-color-gray-text;
+}
+
+/* #FF3346 红色 粗体 文本样式*/
+%font-red_medium_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-medium;
+  color: $sc-color-red-text;
+}
+
+/*************************font-weight: 600 ******************************************/
+/* #FFA500 主色调 粗体 文本样式 */
+%font-dominant_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-dominant-color;
+}
+/* #fff 白色 粗体 文本样式 */
+%font-white_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-color-text-base-inverse;
+}
+/* #333333 黑色 粗体 文本样式 */
+%font-black_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-color-text-base;
+}
+/* #808080 粗体 文本样式 */
+%font-extra_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-color-extra-text;
+}
+/* #bfbfbf 粗体 文本样式*/
+%font-gray_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-color-gray-text;
+}
+
+/* #FF3346 红色 粗体 文本样式*/
+%font-red_blod_text{
+  font-family: $sc-font-family;
+  font-weight:$sc-font-weight-blod;
+  color: $sc-color-red-text;
+}

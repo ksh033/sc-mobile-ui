@@ -1,0 +1,13 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+.com-search {
+  position: relative;
+  width: 100%;
+  top: 0;
+
+  &-content {
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+}

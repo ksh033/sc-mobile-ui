@@ -1,0 +1,9 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-crowd-image-prefix: "com-crowd-image";
+
+.#{$com-crowd-image-prefix} {
+  position: relative;
+  overflow: hidden;
+  font-size: 0;
+}

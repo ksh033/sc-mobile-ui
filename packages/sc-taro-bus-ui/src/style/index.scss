@@ -1,0 +1,15 @@
+@use "sass:math";
+@import "@/style/mixins/border";
+@import "@/style/mixins/tint";
+
+/* theme */
+@import "./theme.scss";
+
+/* 文本样式 */
+@import "./font.scss";
+
+/* 按钮样式 */
+@import "./button.scss";
+
+/* 背景样式 */
+@import "./background.scss";

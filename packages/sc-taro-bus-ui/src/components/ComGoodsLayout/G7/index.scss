@@ -1,0 +1,36 @@
+$com-prefix: "com";
+
+.#{$com-prefix}-goods-group-g7 {
+  position: relative;
+  overflow: hidden;
+
+  &-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &-big {
+    position: relative;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+  }
+  &-left {
+    position: relative;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+  }
+  &-right {
+    position: relative;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+  }
+
+  &-item {
+    position: relative;
+    overflow: hidden;
+  }
+}

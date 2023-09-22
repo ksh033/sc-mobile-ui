@@ -1,0 +1,173 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$my-class-prefix: "com-goods-item";
+
+.#{$my-class-prefix}-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+
+  &__image {
+    width: 155px;
+    height: 155px;
+  }
+
+  &-content {
+    position: relative;
+    flex: 1;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    overflow: hidden;
+    justify-content: flex-start;
+
+    &_name {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      line-height: 1.5;
+      margin-top: 12px;
+
+      &__text {
+        @extend %font-base-title_text;
+        width: 100%;
+      }
+    }
+
+    &_desc {
+      margin-bottom: 7px;
+      display: flex;
+      align-items: flex-start;
+
+      &__text {
+        @extend %font-sub-title_text;
+        width: 100%;
+        line-height: 15px;
+      }
+    }
+
+    &_label {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+  }
+
+  &_bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    height: 40px;
+    right: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      line-height: 1;
+    }
+
+    &-valid {
+      @extend %font-extra_text;
+      font-size: 12px;
+    }
+  }
+
+  &_price {
+    @extend %font-price;
+
+    &__unit {
+      margin-right: 4px;
+      font-size: 12px;
+    }
+  }
+
+  &_mark-price {
+    margin-left: 12px;
+    @extend %font-mark-price;
+  }
+
+  &_unit-price {
+    margin-top: 4px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__text {
+      font-size: 12px;
+      @extend %font-extra_text;
+    }
+  }
+
+  &-circle {
+    border-radius: 12px;
+
+    .#{$my-class-prefix}-horizontal__image {
+      border-radius: 12px;
+    }
+  }
+
+  &-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &-quantity {
+    position: relative;
+    font-size: 12px;
+    @extend %font-extra_text;
+    margin-top: 4px;
+  }
+}
+
+.#{$my-class-prefix}-horizontal-small {
+  .#{$my-class-prefix}-horizontal__image {
+    width: 62px;
+    height: 62px;
+    border-radius: 10px;
+  }
+  .#{$my-class-prefix}-horizontal-content {
+    padding: 0;
+    margin-left: 10px;
+    &_name {
+      margin-bottom: 6px;
+      &__text {
+        font-size: 12px;
+      }
+    }
+
+    &_desc {
+      margin-bottom: 4px;
+      &__text {
+        font-size: 9px;
+      }
+    }
+  }
+
+  .#{$my-class-prefix}-horizontal_price {
+    font-size: 14px;
+
+    &__unit {
+      font-size: 11px;
+    }
+  }
+
+  .#{$my-class-prefix}-horizontal_mark-price {
+    margin-left: 0;
+    margin-top: 84px;
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,178 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$my-class-prefix: "com-goods-item";
+
+.#{$my-class-prefix} {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $sc-color-bg-light;
+  width: 100%;
+
+  &-invalid {
+    position: absolute;
+    background: rgba(42, 43, 47, 0.3);
+    border-radius: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    &__text {
+      @extend %font-white_text;
+      font-size: 12px;
+      text-align: center;
+    }
+  }
+
+  &_ellipsis-one {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &_ellipsis-two {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 这里是超出几行省略 */
+    overflow: hidden;
+    white-space: normal;
+  }
+
+  &_subtitle {
+    position: absolute;
+    bottom: 10px;
+    right: 9px;
+    height: 15px;
+    padding: 0 5px;
+    background: rgba(#000, 0.3);
+    border-radius: 8px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 62px;
+    line-height: 15px;
+
+    &__text {
+      @extend %font-white_text;
+      font-size: 10px;
+    }
+  }
+
+  &_promot {
+    background: $com-goods-tag-bg;
+    padding: 0 4px;
+    border-radius: 4px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    height: 15px;
+    @extend %font-white_medium_text;
+    line-height: 15px;
+    font-size: $sc-font-size-xs;
+    vertical-align: middle;
+  }
+
+  &-label {
+    height: 16px;
+    background: $sc-color-bg-light;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+  }
+
+  &-limit_label {
+    @include border-thin($color: rgba($sc-color-border-red, 0.5));
+    padding: 0 4px;
+    justify-content: center;
+
+    &__text {
+      @extend %font-label-tag;
+      color: $sc-color-red;
+    }
+  }
+
+  &-bizscenne {
+    @include border-thin($color: rgba($sc-color-border-blue, 0.5));
+    padding: 0 4px;
+    justify-content: center;
+
+    &__text {
+      @extend %font-label-tag;
+      color: $sc-color-info;
+    }
+  }
+
+  &-waring {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    line-height: 1;
+    margin-top: 6px;
+
+    &__text {
+      font-size: 11px;
+      margin-left: 3px;
+      @extend %font-red_text;
+    }
+  }
+
+  &-discount {
+    @include border-thin($color: rgba($sc-color-border-red, 0.5));
+
+    &_left {
+      width: 15px;
+      line-height: 1;
+      background-color: tint($sc-color-border-red, 10%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 16px;
+
+      &__text {
+        @extend %font-label-tag;
+        font-weight: $sc-font-weight-blod;
+        color: $sc-color-text-base-inverse;
+      }
+    }
+
+    &_right {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+
+      &__text {
+        @extend %font-label-tag;
+        color: $sc-color-red;
+      }
+    }
+  }
+
+  &-nouse {
+    @extend %font-sub-title_text;
+    color: $sc-color-red;
+  }
+}
+
+.#{$my-class-prefix}-font-weight {
+  &__blod {
+    font-weight: blod;
+  }
+}
+
+.#{$my-class-prefix}-align {
+  &__blod {
+    font-weight: blod;
+  }
+}

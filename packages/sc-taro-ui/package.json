@@ -1,0 +1,50 @@
+{
+  "name": "@sc-mobile/sc-taro-ui",
+  "version": "1.0.0-beta.1",
+  "description": "UI KIT for Taro",
+  "style": "dist/style.css",
+  "main": "./es/index.js",
+  "module": "./es/index.js",
+  "types": "./es/index.d.ts",
+  "react-native": "./es/index.native.js",
+  "files": [
+
+    "lib",
+    "es"
+  ],
+
+  "sideEffects": [
+    "*.scss",
+    "dist/esm/**/style/*",
+    "dist/style.css",
+    "dist/styles/font/*"
+  ],
+  "keywords": [
+    "taro",
+    "taro-ui",
+    "ui"
+  ],
+  "author": "",
+  "homepage": "",
+  "repository": {},
+  "license": "MIT",
+  "publishConfig": {
+    "tag": "next"
+  },
+  "scripts": {
+    "generate-nutui":"node ./scripts/generate-nutui.js",
+    "build": "father dev"
+  },
+  "dependencies": {
+    "@nutui/nutui-react-taro":"^2.0.18"
+    
+  },
+  "devDependencies": {
+ 
+    
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

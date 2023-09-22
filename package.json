@@ -1,0 +1,96 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "",
+  "author": "",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  
+  "license": "MIT",
+  "scripts": {
+  
+
+  },
+  "dependencies": {
+    "classnames": "^2.3.2",
+    "@nutui/icons-react-taro": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.35",
+    "father":"^4.3.5",
+    "typescript": "^4.9.5",
+    "@types/lodash.isequal": "^4.5.6",
+    "@types/lodash.kebabcase": "^4.1.7",
+    "@tarojs/components":"3.6.16",
+    "@tarojs/plugin-platform-weapp": "3.6.16",
+    "@tarojs/plugin-platform-alipay": "3.6.16",
+    "@tarojs/plugin-framework-react": "3.6.16",
+    "@tarojs/react": "3.6.16",
+    "@tarojs/taro": "3.6.16",
+    "@tarojs/taro-h5": "3.6.16",
+    "@tarojs/router": "3.6.16",
+    "@tarojs/runtime": "3.6.16",
+    "@tarojs/shared": "3.6.16",
+    "glob": "^10.0.0",
+    "autoprefixer": "^10.4.14",
+    "react-router-dom": "^6.0.0",
+    "sass": "^1.62.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "resolutions": {
+    "@types/react": "18",
+    "@types/react-dom": "18"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "package.json",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "packageManager": "pnpm@7.24.2",
+  "engines": {
+    "node": ">=14",
+    "pnpm": ">=7"
+  }
+}

@@ -1,0 +1,72 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-title-prefix: "com-title";
+
+.#{$com-title-prefix} {
+  position: relative;
+  padding: 0 16px;
+  display: block;
+
+  &-wrap {
+    position: relative;
+    padding: 16px 0;
+    word-break: break-all;
+
+    &-center {
+      display: flex;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      .#{$com-title-prefix}-content {
+        flex: auto;
+        text-align: center;
+      }
+    }
+
+    &-right {
+      .#{$com-title-prefix}-content {
+        text-align: right;
+      }
+    }
+  }
+
+  &-content {
+    font-size: 16px;
+    flex: 1 1 0%;
+  }
+
+  &-title {
+    margin: 0;
+    overflow: hidden;
+    @extend %font-black_text;
+    font-size: 16px;
+  }
+
+  &-sub {
+    font-size: 12px;
+    @extend %font-extra_text;
+    margin-top: 12px;
+  }
+
+  &-desc {
+    display: inline-block;
+    white-space: pre-wrap;
+  }
+
+  &-date {
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  &-author {
+    font-size: 12px;
+  }
+
+  &-wx-link {
+    font-size: 12px;
+    color: #607fa6;
+    background: transparent;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+}

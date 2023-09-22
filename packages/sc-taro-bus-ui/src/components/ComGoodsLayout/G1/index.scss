@@ -1,0 +1,17 @@
+$com-prefix: "com";
+
+.#{$com-prefix}-goods-group-g1 {
+  position: relative;
+  display: flex;
+
+  &-content {
+    position: relative;
+    width: 100%;
+  }
+
+  &-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,91 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-adimages-prefix: "com-adimages";
+
+.#{$com-adimages-prefix} {
+  position: relative;
+  overflow: hidden;
+  font-size: 0;
+
+  &-list {
+    position: relative;
+  }
+
+  &-content {
+    position: relative;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+  }
+
+  &-content:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  &-swiper {
+    position: relative;
+    padding: 0;
+  }
+
+  &-scroll {
+    position: relative;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+
+    ::-webkit-scrollbar {
+      display: block !important;
+    }
+
+    &-warp {
+      position: relative;
+      width: auto;
+      margin-bottom: -10px;
+      padding-bottom: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &-item {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      height: 100%;
+
+      &-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    &-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+}
+
+.#{$com-adimages-prefix}-shadow {
+  .#{$com-adimages-prefix}-content {
+    box-shadow: 0 4px 10px rgba(47, 54, 70, 0.1);
+  }
+  .#{$com-adimages-prefix}-list {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .#{$com-adimages-prefix}-swiper {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-sizing: content-box;
+
+    .com-swiper {
+      width: auto !important;
+    }
+  }
+}

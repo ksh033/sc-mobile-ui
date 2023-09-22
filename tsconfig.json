@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@sc-mobile/sc-taro-ui": ["../packages/sc-taro-ui/src/index.ts"],
+      "@/*": ["src/*"]
+    }
+  }
+}

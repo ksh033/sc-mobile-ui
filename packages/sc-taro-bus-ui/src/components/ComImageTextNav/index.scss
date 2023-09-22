@@ -1,0 +1,105 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-imagetext-nav-prefix: "com-imagetext-nav";
+
+.#{$com-imagetext-nav-prefix} {
+  position: relative;
+  overflow: hidden;
+  font-size: 0;
+
+  &__image-nav {
+    position: relative;
+    margin-bottom: -10px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 0;
+  }
+
+  &__nav-title {
+    width: 100%;
+    height: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+    line-height: 20px;
+    box-sizing: border-box;
+    text-align: center;
+
+    &__text {
+      font-size: 12px;
+    }
+  }
+
+  &__text-nav {
+    width: auto;
+    margin-bottom: -10px;
+    padding-bottom: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  &__text-wrapper {
+    display: inline-block;
+    padding: 15px 0;
+  }
+}
+
+.#{$com-imagetext-nav-prefix}__image-nav
+  .#{$com-imagetext-nav-prefix}__nav-title {
+  height: 33px;
+  padding-bottom: 9px;
+  line-height: 24px;
+}
+
+.#{$com-imagetext-nav-prefix}__text-nav
+  .#{$com-imagetext-nav-prefix}__nav-title {
+  position: relative;
+  height: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+}
+
+.#{$com-imagetext-nav-prefix}__text-nav
+  .#{$com-imagetext-nav-prefix}__nav-title::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 200%;
+  height: 200%;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  content: "";
+  pointer-events: none;
+  border-right: 1px solid #eee;
+}
+
+.#{$com-imagetext-nav-prefix}__text-wrapper:last-child
+  .#{$com-imagetext-nav-prefix}__nav-title:after {
+  border: none;
+}

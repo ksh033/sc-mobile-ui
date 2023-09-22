@@ -1,0 +1,26 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-notice-prefix: "com-notice";
+
+.#{$com-notice-prefix} {
+  position: relative;
+
+  .nut-noticebar .nut-noticebar-page .wrap {
+    align-items: center;
+  }
+
+  .nut-noticebar .nut-noticebar-page .content {
+    font-size: 14px;
+  }
+
+  &-round {
+    .nut-noticebar .nut-noticebar-page {
+      border-radius: 8px;
+    }
+  }
+
+  &-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

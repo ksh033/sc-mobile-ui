@@ -1,0 +1,15 @@
+@import './theme.scss';
+@import './mixins/border';
+
+/* 主色背景 50%圆角 */
+%bg-button-circle__active{
+  background: $sc-dominant-color;
+  line-height: 1;
+  @include border-thin($color: $sc-dominant-color);
+}
+
+/* 灰色背景  直角*/
+%bg-button-circle__disabled{
+  background: $sc-color-disabled;
+  @include border-thin($color: $sc-color-disabled);
+}

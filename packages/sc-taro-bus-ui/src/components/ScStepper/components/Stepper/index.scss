@@ -1,0 +1,302 @@
+@import "../../index.scss";
+
+
+$stepper-size-small: 16px;
+$stepper-size-normal: 20px;
+$stepper-size-big: 24px;
+
+%stepper-circle-btn {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  // transition: all 0.3s linear;
+  // border-radius: 50%;
+  z-index: 100;
+}
+
+%stepper-circle-value {
+  position: absolute;
+  text-align: center;
+}
+
+.#{$stepper-prefix}-circle-warp {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &-minus {
+    z-index: 99;
+    @extend %stepper-circle-btn;
+    @include border-thin($color: rgba($sc-dominant-color, 0.5));
+    background-color: $sc-color-bg-light;
+    color: $sc-dominant-color;
+  }
+  &-minus::before {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    bottom: -10px;
+    left: -5px;
+    margin: auto;
+    background-color: $sc-dominant-color;
+    content: "";
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  &-num {
+    @extend %stepper-circle-value;
+
+    &__text {
+      @extend %font-black_text;
+      font-size: 14px;
+    }
+  }
+
+  &-plus {
+    z-index: 99;
+    @extend %stepper-circle-btn;
+    background: $sc-dominant-color;
+    right: 0;
+    color: $sc-color-text-base;
+
+    &-num {
+      position: absolute;
+      right: -2px;
+      top: -3px;
+      min-width: 12px;
+      height: 12px;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      &__text {
+        font-size: 10px;
+        @extend %font-white_text;
+      }
+    }
+  }
+
+  &-plus::before {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    bottom: -10px;
+    left: -5px;
+    margin: auto;
+    background-color: $sc-color-bg-light;
+    content: "";
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  &-plus:after {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    bottom: -5px;
+    left: -10px;
+    margin: auto;
+    background-color: $sc-color-bg-light;
+    content: "";
+    width: 2px;
+    height: 12px;
+    border-radius: 1px;
+  }
+}
+
+.#{$stepper-prefix}-circle-warp__small {
+  width: 50px;
+  height: $stepper-size-small;
+
+  .#{$stepper-prefix}-circle-warp-minus {
+    width: $stepper-size-small;
+    height: $stepper-size-small;
+    border-radius: $stepper-size-small;
+  }
+  .#{$stepper-prefix}-circle-warp-plus {
+    width: $stepper-size-small;
+    height: $stepper-size-small;
+    border-radius: $stepper-size-small;
+  }
+
+  .#{$stepper-prefix}-circle-warp-num {
+    width: $stepper-size-small;
+    height: $stepper-size-small;
+    line-height: $stepper-size-small;
+  }
+}
+
+.#{$stepper-prefix}-circle-warp__normal {
+  width: 65px;
+  height: $stepper-size-normal;
+
+  .#{$stepper-prefix}-circle-warp-minus {
+    width: $stepper-size-normal;
+    height: $stepper-size-normal;
+    border-radius: $stepper-size-normal;
+  }
+  .#{$stepper-prefix}-circle-warp-plus {
+    width: $stepper-size-normal;
+    height: $stepper-size-normal;
+    border-radius: $stepper-size-normal;
+  }
+  .#{$stepper-prefix}-circle-warp-num {
+    width: $stepper-size-normal;
+    height: $stepper-size-normal;
+    line-height: $stepper-size-normal;
+  }
+}
+
+.#{$stepper-prefix}-circle-warp__large {
+  width: 82px;
+  height: $stepper-size-big;
+
+  .#{$stepper-prefix}-circle-warp-minus {
+    width: $stepper-size-big;
+    height: $stepper-size-big;
+    border-radius: $stepper-size-big;
+  }
+  .#{$stepper-prefix}-circle-warp-plus {
+    width: $stepper-size-big;
+    height: $stepper-size-big;
+    border-radius: $stepper-size-big;
+  }
+  .#{$stepper-prefix}-circle-warp-num {
+    width: $stepper-size-big;
+    height: $stepper-size-big;
+    line-height: $stepper-size-big;
+  }
+}
+
+.#{$stepper-prefix}-border-warp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  &-minus {
+    border-right-width: 0;
+    @include border-thin(
+      $color: $sc-color-border-base,
+      $directions: top bottom left
+    );
+    position: relative;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $sc-color-bg-light;
+    border-radius: 8px 0 0 8px;
+    box-sizing: content-box;
+
+    &__text {
+      @extend %font-black_text;
+      line-height: 25px;
+      font-size: 15px;
+    }
+  }
+
+  &-num {
+    @include border-thin($color: $sc-color-border-base);
+    width: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+
+    &__text {
+      @extend %font-black_text;
+      line-height: 25px;
+      font-size: 14px;
+    }
+  }
+
+  &-plus {
+    border-left-width: 0;
+    @include border-thin(
+      $color: $sc-color-border-base,
+      $directions: top bottom right
+    );
+    position: relative;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $sc-color-bg-light;
+    border-radius: 0 4px 4% 0;
+    box-sizing: content-box;
+
+    &__text {
+      @extend %font-black_text;
+      line-height: 25px;
+      font-size: 15px;
+    }
+  }
+}
+
+
+.#{$stepper-prefix}-circle-warp {
+  &-minus::before {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    bottom: -10px;
+    left: -5px;
+    margin: auto;
+    background-color: $sc-dominant-color;
+    content: "";
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  &-plus {
+    &-num {
+      background: linear-gradient(-29deg, #fc374b, #f97032);
+    }
+  }
+
+  &-plus::before {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+    bottom: -10px;
+    left: -5px;
+    margin: auto;
+    background-color: $sc-color-bg-light;
+    content: "";
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  &-plus:after {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    bottom: -5px;
+    left: -10px;
+    margin: auto;
+    background-color: $sc-color-bg-light;
+    content: "";
+    width: 2px;
+    height: 12;
+    border-radius: 1px;
+  }
+}

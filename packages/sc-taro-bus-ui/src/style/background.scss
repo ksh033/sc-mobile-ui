@@ -1,0 +1,12 @@
+@import './theme.scss';
+
+/* 白色背景 20px圆角 */
+%background-white {
+  background: $sc-color-bg-light;
+  border-radius: $sc-border-radius-xl;
+}
+
+/* 灰色背景  直角*/
+%background-gray-light {
+  background: $sc-color-bg;
+}

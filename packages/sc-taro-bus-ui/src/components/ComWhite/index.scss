@@ -1,0 +1,18 @@
+@import "@/style/index.scss"; // 引入基础配置
+
+$com-white-prefix: "com-white";
+
+.#{$com-white-prefix} {
+  position: relative;
+
+  &-line {
+    box-sizing: border-box;
+    width: 100%;
+
+    &-item {
+      width: 100%;
+      margin: 10px 0;
+      border: 0;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+$com-prefix: "com";
+
+.#{$com-prefix}-goods-group-g5 {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &-scroll {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    white-space: nowrap;
+  }
+
+  &-item {
+    display: inline-block;
+    flex: 0 0 30%;
+    float: none;
+    width: 30%;
+
+    &-content {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      min-height: 50px;
+      overflow: hidden;
+      color: #333;
+      background-color: #fff;
+      white-space: normal;
+    }
+  }
+
+  &-margin {
+    margin-right: 16px;
+  }
+}

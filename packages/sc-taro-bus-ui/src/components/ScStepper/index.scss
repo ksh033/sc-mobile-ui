@@ -1,0 +1,12 @@
+@import "@/style/index.scss"; // 引入基础配置
+@import "@/style/mixins/border";
+
+$stepper-prefix: "com-stepper";
+
+.#{$stepper-prefix} {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,17 @@
+.waterfall {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.col {
+  width: 1rem;
+  flex: 1 1 auto;
+}
+.col:last-child {
+  margin-right: 0 !important;
+}
+.item {
+  position: relative;
+}

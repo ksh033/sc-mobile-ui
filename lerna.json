@@ -1,0 +1,24 @@
+{
+  "workspaces": ["packages/*"],
+  "command": {
+    "publish": {
+      "message": "chore(release): publish %s"
+    },
+    "create": {
+     
+      "license": "MIT"
+    }
+  }, 
+  "ignoreChanges": [
+    "**/*.md",
+    "**/*.test.ts",
+    "**/*.e2e.ts",
+    "**/demos/**",
+    "**/fixtures/**",
+    "**/dist/**",
+    "**/lib/**",
+    "**/es/**",
+    "**/test/**"
+  ],
+  "npmClient": "pnpm"
+}

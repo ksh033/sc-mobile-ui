@@ -1,0 +1,111 @@
+@import "./mixins/tint";
+
+$sc-hd: 1 !default; // 基本单位
+/* 主色调 */
+$sc-dominant-color: #ffa600 !default;
+$price-red: #f63b28;
+$red: #ff3346;
+$blue: #397efb;
+$purple: #9a50ff;
+$gray: #bfbfbf;
+$extra: #808080;
+$white: #ffffff;
+$black: #000000;
+$baseblack: #333333;
+$divide: #efeff0;
+$disbaled: #ccccd1;
+$indigo: #7adbd4;
+$light-gray: #f7f7f7;
+$light-bg: #f6f7fb;
+$green: #00cb6e;
+
+/* 辅助色 */
+$sc-color-price: $price-red !default;
+$sc-color-info: $blue !default;
+$sc-color-red: $red !default;
+$sc-color-waring: $sc-dominant-color !default;
+$sc-color-indigo: $indigo !default;
+
+/* 背景色 */
+$sc-color-bg: $light-gray !default;
+$sc-color-bg-light: $white !default;
+$sc-color-bg-black: $black !default;
+$sc-color-bg-extra: $extra !default;
+$sc-color-bg-gray: $gray !default;
+$sc-color-bg-red: $red !default;
+$sc-color-bg-blue: $blue !default;
+$sc-color-bg-purple: $purple !default;
+$sc-color-bg-light-gray: $light-bg !default;
+
+/* 不可点击颜色 */
+$sc-color-disabled: $disbaled !default;
+
+/* 文本颜色 */
+$sc-color-text-base: $baseblack !default;
+$sc-color-text-base-inverse: $white !default; // 反色
+$sc-color-extra-text: $extra !default;
+$sc-color-gray-text: $gray !default;
+$sc-color-black-text: $black !default;
+$sc-color-red-text: $red !default;
+$sc-color-blue-text: $blue !default;
+$sc-color-purple-text: $purple !default;
+
+/* 分割线颜色 */
+$sc-divide-line-color: $divide !default;
+
+/* Border Radius */
+$sc-border-radius-sm: 2px * $sc-hd !default;
+$sc-border-radius-lg: 8px * $sc-hd !default;
+$sc-border-radius-xl: 10px * $sc-hd !default;
+$sc-border-radius-circle: 50% !default;
+
+/* 边框颜色 */
+$sc-color-border-black: $baseblack !default;
+$sc-color-border-white: $white !default;
+$sc-color-border-base: $gray !default;
+$sc-color-border-extra: $extra !default;
+$sc-color-border-blue: $blue !default;
+$sc-color-border-red: $red !default;
+$sc-color-border-light-gray: $light-gray !default;
+$sc-color-border-divide: $divide !default;
+
+/* 文本字体 */
+$sc-font-family: PingFang SC;
+
+/* font-size 字体大小 */
+$sc-font-size-xs: 10px * $sc-hd !default; // 一般用于提示类文字
+$sc-font-size-sm: 12px * $sc-hd !default; // 一般用于提示类文字
+$sc-font-size-base: 14px * $sc-hd !default; // 常用字号
+$sc-font-size-md: 15px * $sc-hd !default; // 小一点的标题
+$sc-font-size-lg: 16px * $sc-hd !default; // 常规标题
+$sc-font-size-xl: 17px * $sc-hd !default; // 相对大一点的标题
+$sc-font-size-xxl: 18px * $sc-hd !default; // 用于大号的数字
+
+/* font-weight 字体粗细 */
+$sc-font-weight-normal: 400 !default; // 正常粗细
+$sc-font-weight-medium: 500 !default; // 粗体
+$sc-font-weight-blod: 600 !default; // 粗体
+
+/* z-index */
+$sc-zindex-modal: 1000 !default;
+$sc-zindex-picker: 1010 !default;
+
+/* 图标尺寸 */
+$sc-icon-size-sm: 18px * $sc-hd !default;
+$sc-icon-size-md: 22px * $sc-hd !default;
+$sc-icon-size-lg: 36px * $sc-hd !default;
+
+//——业务默认值——//
+
+/* 商品限时折扣背景 */
+// $com-goods-tag-bg: linear-gradient(29deg, $sc-color-red, #fc5b2f);
+$com-goods-tag-bg: $sc-color-red;
+
+/* tabbar color */
+$sc-color-sc-tabbar: $white !default;
+
+// Animation
+$animation-duration-base: 0.2s;
+$animation-duration-fast: 0.1s;
+$animation-timing-function-enter: ease-out;
+$animation-timing-function-exit: ease-in;
