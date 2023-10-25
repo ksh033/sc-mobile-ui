@@ -10,7 +10,7 @@ import {
 import ScImage from "../ScImage";
 import "./index.scss";
 import React from "react";
-
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 const scrollMap:any = {
   4: 0.94,
   5: 0.96,
@@ -22,7 +22,7 @@ const scrollMap:any = {
 };
 
 /** 图文导航 */
-const ComImageTextNav: React.FC<ComImageTextNavProps> = (props) => {
+const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
   const {
     count = 4,
     showMethod = "imageText",
@@ -173,5 +173,5 @@ const ComImageTextNav: React.FC<ComImageTextNavProps> = (props) => {
     </View>
   );
 };
-
-export default ComImageTextNav;
+ComImageTextNav.cmpType='ImageTextNav'
+export default RegAppUIComponent(ComImageTextNav);

@@ -5,8 +5,9 @@ import { useMemo } from "react";
 import { ComSearchProps } from "./type";
 import "./index.scss";
 import React from "react";
+import { type AppUIComponents,  RegAppUIComponent } from "@sceditor/core";
 /** 商品搜索框 */
-const ComSearch: React.FC<ComSearchProps> = (props) => {
+const ComSearch: AppUIComponents<ComSearchProps> = (props) => {
   const {
     style = {},
     className,
@@ -88,5 +89,5 @@ const ComSearch: React.FC<ComSearchProps> = (props) => {
     </View>
   );
 };
-
-export default ComSearch;
+ComSearch.cmpType='Search'
+export default RegAppUIComponent(ComSearch);

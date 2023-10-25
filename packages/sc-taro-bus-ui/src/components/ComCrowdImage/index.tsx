@@ -3,11 +3,12 @@ import { useMemo } from "react";
 import { ComCrowdImageProps } from "./type";
 import ComAdImages from "../ComAdImages";
 import React from "react";
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 
 /** 人群图片
  *  resprops.showMethod  大图模式下只取一个
  */
-const ComCrowdImage: React.FC<ComCrowdImageProps> = (props) => {
+const ComCrowdImage: AppUIComponents<ComCrowdImageProps> = (props) => {
   const { list = [], ...resprops } = props;
 
   const rList = useMemo(() => {
@@ -23,5 +24,5 @@ const ComCrowdImage: React.FC<ComCrowdImageProps> = (props) => {
     </View>
   );
 };
-
-export default ComCrowdImage;
+ComCrowdImage.cmpType='CrowdImage'
+export default RegAppUIComponent(ComCrowdImage);

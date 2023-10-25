@@ -13,7 +13,7 @@ export {
     CrowdImage,
     ConfigProvider
 } from './components'
-
+console.log("sc-taro-bus-ui")
 export {
     useUpdateEffect,
     useDebounce,

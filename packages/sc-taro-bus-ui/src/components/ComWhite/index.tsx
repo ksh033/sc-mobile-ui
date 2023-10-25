@@ -2,9 +2,10 @@ import { View } from "@tarojs/components";
 import { ComWhiteProps } from "./type";
 import "./index.scss";
 import React from "react";
+import { RegAppUIComponent,type AppUIComponents } from "@sceditor/core";
 
 /** 辅助分割 */
-const ComWhite: React.FC<ComWhiteProps> = (props) => {
+const ComWhite: AppUIComponents<ComWhiteProps> = (props) => {
   const {
     type = "white",
     height = 30,
@@ -38,5 +39,5 @@ const ComWhite: React.FC<ComWhiteProps> = (props) => {
     </View>
   );
 };
-
-export default ComWhite;
+ComWhite.cmpType='White'
+export default RegAppUIComponent(ComWhite);

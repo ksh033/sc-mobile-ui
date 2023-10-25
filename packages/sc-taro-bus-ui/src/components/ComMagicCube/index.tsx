@@ -13,7 +13,7 @@ import { ComMagicCubeLayout, ComMagicCubeProps, SubEntryItem } from "./type";
 import "./index.scss";
 import ScImage from "../ScImage";
 import React from "react";
-
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 type ComMagicCubeState = {
   /** 是否添加margin */
   addMarginflag: boolean;
@@ -42,7 +42,7 @@ const defaultLayout = {
   ],
 };
 /** 魔方 */
-const ComMagicCube: React.FC<ComMagicCubeProps> = (props) => {
+const ComMagicCube: AppUIComponents<ComMagicCubeProps> = (props) => {
   const { pageMargin = 0, gutter = 0, id, layout } = props;
 
   console.log(props);
@@ -175,5 +175,5 @@ const ComMagicCube: React.FC<ComMagicCubeProps> = (props) => {
     </View>
   );
 };
-
-export default ComMagicCube;
+ComMagicCube.cmpType='MagicCube'
+export default RegAppUIComponent(ComMagicCube);

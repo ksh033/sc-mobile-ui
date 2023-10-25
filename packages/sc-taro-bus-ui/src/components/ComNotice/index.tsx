@@ -4,8 +4,8 @@ import classnames from "classnames";
 import { ComNoticeProps } from "./type";
 import "./index.scss";
 import React from "react";
-
-const ComNotice: React.FC<ComNoticeProps> = (props) => {
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
+const ComNotice: AppUIComponents<ComNoticeProps> = (props) => {
   const {
     content,
     pageMargin = 0,
@@ -51,5 +51,5 @@ const ComNotice: React.FC<ComNoticeProps> = (props) => {
     </View>
   );
 };
-
-export default ComNotice;
+ComNotice.cmpType='Notice'
+export default RegAppUIComponent(ComNotice);

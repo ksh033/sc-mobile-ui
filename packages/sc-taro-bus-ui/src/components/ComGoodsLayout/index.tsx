@@ -11,6 +11,7 @@ import G7 from "./G7";
 import "./index.scss";
 import { ComWaterfallRef } from "../ComWaterfall";
 import React from "react";
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 
 const defaultItemData: ComGoodsItemDataProps = {
   goodsId: "1",
@@ -51,7 +52,7 @@ const getDefaultList = (num: number) => {
 };
 
 /** 商品 */
-const ComGoodsLayout: React.FC<ComGoodsLayoutProps> = (props) => {
+const ComGoodsLayout:AppUIComponents<ComGoodsLayoutProps> = (props) => {
   const {
     goodsType = "G1",
     pageMargin = 0,
@@ -134,5 +135,5 @@ const ComGoodsLayout: React.FC<ComGoodsLayoutProps> = (props) => {
 
   return <View></View>;
 };
-
-export default ComGoodsLayout;
+ComGoodsLayout.cmpType='GoodsLayout'
+export default RegAppUIComponent(ComGoodsLayout);

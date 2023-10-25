@@ -10,46 +10,42 @@
     "type": "git",
     "url": ""
   },
-  
   "license": "MIT",
   "scripts": {
-  
-
+    "build:dev": "pnpm  --parallel --filter \"@sc-mobile/**\" dev"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "@nutui/icons-react-taro": "0.0.1"
+    "@nutui/icons-react-taro": "0.0.1",
+
+    "classnames": "^2.3.2"
   },
   "devDependencies": {
-    "@types/node": "^18.0.0",
-    "@types/react": "^18.0.35",
-    "father":"^4.3.5",
-    "typescript": "^4.9.5",
-    "@types/lodash.isequal": "^4.5.6",
-    "@types/lodash.kebabcase": "^4.1.7",
-    "@tarojs/components":"3.6.16",
-    "@tarojs/plugin-platform-weapp": "3.6.16",
-    "@tarojs/plugin-platform-alipay": "3.6.16",
+    "@tarojs/components": "3.6.16",
     "@tarojs/plugin-framework-react": "3.6.16",
+    "@tarojs/plugin-platform-alipay": "3.6.16",
+    "@tarojs/plugin-platform-weapp": "3.6.16",
     "@tarojs/react": "3.6.16",
-    "@tarojs/taro": "3.6.16",
-    "@tarojs/taro-h5": "3.6.16",
     "@tarojs/router": "3.6.16",
     "@tarojs/runtime": "3.6.16",
     "@tarojs/shared": "3.6.16",
-    "glob": "^10.0.0",
+    "@tarojs/taro": "3.6.16",
+    "@tarojs/taro-h5": "3.6.16",
+    "@types/lodash.isequal": "^4.5.6",
+    "@types/lodash.kebabcase": "^4.1.7",
+    "@types/node": "^18.0.0",
+    "@types/react": "18.0.33",
     "autoprefixer": "^10.4.14",
+    "father": "^4.3.5",
+    "glob": "^10.0.0",
     "react-router-dom": "^6.0.0",
-    "sass": "^1.62.0"
+    "sass": "^1.62.0",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "resolutions": {
-    "@types/react": "18",
-    "@types/react-dom": "18"
-  },
+
   "files": [
     "dist",
     "README.md",

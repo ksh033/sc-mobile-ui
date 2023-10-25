@@ -16,9 +16,10 @@ import {
 } from "./type";
 import "./index.scss";
 import React from "react";
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 
 /** 电梯导航参数 */
-const ComElevatorNav: React.FC<ComElevatorNavProps> = (props) => {
+const ComElevatorNav: AppUIComponents<ComElevatorNavProps> = (props) => {
   const {
     subEntry = [],
     showMethod = "text",
@@ -259,5 +260,5 @@ const ComElevatorNav: React.FC<ComElevatorNavProps> = (props) => {
     </View>
   );
 };
-
-export default ComElevatorNav;
+ComElevatorNav.cmpType='ElevatorNav'
+export default RegAppUIComponent(ComElevatorNav);

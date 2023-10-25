@@ -7,7 +7,7 @@ import ComSwiper from "../ComSwiper";
 import { ComAdImagesItem, ComAdImagesProps, ShowMethod } from "./type";
 import ScImage from "../ScImage";
 import "./index.scss";
-import React from "react";
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
 
 const emptyItem: ComAdImagesItem = {
   imageId: "empty",
@@ -31,7 +31,7 @@ const scrollMap:any = {
 };
 
 /** 图片广告 */
-const ComAdImages: React.FC<ComAdImagesProps> = (props) => {
+const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
   const {
     showMethod = "single",
     imageStyle = "normal",
@@ -209,5 +209,5 @@ const ComAdImages: React.FC<ComAdImagesProps> = (props) => {
     </View>
   );
 };
-
-export default ComAdImages;
+ComAdImages.cmpType='AdImage'
+export default RegAppUIComponent(ComAdImages);

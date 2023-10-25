@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-overrides:
-  '@types/react': '18'
-  '@types/react-dom': '18'
-
 importers:
 
   .:
@@ -23,22 +19,22 @@ importers:
     devDependencies:
       '@tarojs/components':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
       '@tarojs/plugin-framework-react':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react-refresh@0.14.0)(react@18.2.0)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react-refresh@0.14.0)(react@18.2.0)
       '@tarojs/plugin-platform-alipay':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/plugin-platform-weapp':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/react':
         specifier: 3.6.16
         version: 3.6.16(react@18.2.0)
       '@tarojs/router':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/runtime':
         specifier: 3.6.16
         version: 3.6.16
@@ -47,10 +43,10 @@ importers:
         version: 3.6.16
       '@tarojs/taro':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/taro-h5':
         specifier: 3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@types/lodash.isequal':
         specifier: ^4.5.6
         version: 4.5.6
@@ -61,8 +57,8 @@ importers:
         specifier: ^18.0.0
         version: 18.0.0
       '@types/react':
-        specifier: '18'
-        version: 18.0.0
+        specifier: 18.0.33
+        version: 18.0.33
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.30)
@@ -99,13 +95,13 @@ importers:
     devDependencies:
       '@tarojs/components':
         specifier: ^3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
       '@tarojs/react':
         specifier: ^3.6.16
         version: 3.6.16(react@18.2.0)
       '@tarojs/taro':
         specifier: ^3.6.16
-        version: 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+        version: 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@types/classnames':
         specifier: ^2.2.9
         version: 2.2.9
@@ -116,10 +112,10 @@ importers:
         specifier: ^13.11.1
         version: 13.11.1
       '@types/react':
-        specifier: '18'
-        version: 18.0.0
+        specifier: 18.0.33
+        version: 18.0.33
       '@types/react-dom':
-        specifier: '18'
+        specifier: ^18.0.0
         version: 18.0.0
       babel-plugin-import:
         specifier: ^1.13.3
@@ -2420,7 +2416,7 @@ packages:
       '@tarojs/shared': 3.6.16
     dev: true
 
-  /@tarojs/components-advanced@3.6.16(@types/react@18.0.0)(react@18.2.0):
+  /@tarojs/components-advanced@3.6.16(@types/react@18.0.33)(react@18.2.0):
     resolution: {integrity: sha512-zoejuu39P4LZBae9Q7LiwpRAAU7CPhqCF0hQoY1QvD/ZUEHLLNlw+ITV/OyjamHaui8jDwC7UMfVPzObaxbh1w==}
     peerDependencies:
       react: '>=17'
@@ -2431,10 +2427,10 @@ packages:
       vue:
         optional: true
     dependencies:
-      '@tarojs/components': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
+      '@tarojs/components': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
       '@tarojs/runtime': 3.6.16
       '@tarojs/shared': 3.6.16
-      '@tarojs/taro': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/taro': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       classnames: 2.3.2
       csstype: 3.1.2
       memoize-one: 6.0.0
@@ -2447,7 +2443,7 @@ packages:
       - '@types/webpack-dev-server'
     dev: true
 
-  /@tarojs/components@3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0):
+  /@tarojs/components@3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0):
     resolution: {integrity: sha512-ATCTZkB7OftIQOymwo8XpNfibCXJ4KQ/V+76yy91TvFZCcgT7Tj/PyV64NDj47Axk37h0GovQO9hCblO084/0g==}
     peerDependencies:
       '@types/react': '*'
@@ -2462,10 +2458,10 @@ packages:
         optional: true
     dependencies:
       '@stencil/core': 2.22.3
-      '@tarojs/components-advanced': 3.6.16(@types/react@18.0.0)(react@18.2.0)
-      '@tarojs/router': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
-      '@tarojs/taro': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
-      '@types/react': 18.0.0
+      '@tarojs/components-advanced': 3.6.16(@types/react@18.0.33)(react@18.2.0)
+      '@tarojs/router': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
+      '@tarojs/taro': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
+      '@types/react': 18.0.33
       classnames: 2.3.2
       hls.js: 1.4.12
       intersection-observer: 0.7.0
@@ -2513,7 +2509,7 @@ packages:
       - supports-color
     dev: true
 
-  /@tarojs/plugin-framework-react@3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react-refresh@0.14.0)(react@18.2.0):
+  /@tarojs/plugin-framework-react@3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react-refresh@0.14.0)(react@18.2.0):
     resolution: {integrity: sha512-zlCa3qmfCCvh1ICLNJH81dnNA9zCzyqWXrd5dLDtfT9eBZEYhn8BltsSW7FZsp0KxYFpO6NwYu2BOq8Y3S5Dow==}
     peerDependencies:
       '@pmmmwh/react-refresh-webpack-plugin': '*'
@@ -2535,7 +2531,7 @@ packages:
     dependencies:
       '@tarojs/helper': 3.6.16
       '@tarojs/runtime': 3.6.16
-      '@tarojs/service': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/service': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/shared': 3.6.16
       acorn: 8.10.0
       acorn-walk: 8.2.0
@@ -2551,11 +2547,11 @@ packages:
       - vue
     dev: true
 
-  /@tarojs/plugin-platform-alipay@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/plugin-platform-alipay@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-PXHsk4oJoTObmZpZfTzh6m+3w3x7nIWE7xbkA0WBIClRkcL6vguOQCSzG+XX8Kxou3YctXGkAmdeT4T7Oc37/Q==}
     dependencies:
-      '@tarojs/components': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
-      '@tarojs/service': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/components': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
+      '@tarojs/service': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/shared': 3.6.16
     transitivePeerDependencies:
       - '@types/react'
@@ -2567,11 +2563,11 @@ packages:
       - vue
     dev: true
 
-  /@tarojs/plugin-platform-weapp@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/plugin-platform-weapp@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-rbLld+cOYsfihg3EiqgPPE76UCNU38RiPVVrU0Rfp3nH7cpEWSweFn35T3b34XPSJBlV+yhRbplHLnjPmgD3Zw==}
     dependencies:
-      '@tarojs/components': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
-      '@tarojs/service': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/components': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
+      '@tarojs/service': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/shared': 3.6.16
     transitivePeerDependencies:
       - '@types/react'
@@ -2593,11 +2589,11 @@ packages:
       - react
     dev: true
 
-  /@tarojs/router@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/router@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-8yhAPqjbmmphyN3QkYmbNrjWG5OYq0iKsUvUZm0NV+hZIxhha/odS2uxQoOm8zn8xxaj9mlL8ID3Tc90ukMP1w==}
     dependencies:
       '@tarojs/runtime': 3.6.16
-      '@tarojs/taro': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/taro': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       dingtalk-jsapi: 2.15.4
       history: 5.3.0
       mobile-detect: 1.4.5
@@ -2618,12 +2614,12 @@ packages:
       lodash-es: 4.17.21
     dev: true
 
-  /@tarojs/service@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/service@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-izBhearJoDztzREQBaK8xS7D8zKvPvt4GmeJfKdhVxV4mAhQHYU61RkbqP0R7VQnZrZia5/80eBYYenkpkUzVw==}
     dependencies:
       '@tarojs/helper': 3.6.16
       '@tarojs/shared': 3.6.16
-      '@tarojs/taro': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/taro': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       joi: 17.10.2
       lodash: 4.17.21
       ora: 5.4.1
@@ -2643,12 +2639,12 @@ packages:
     resolution: {integrity: sha512-Jlp8qIvbSxR/4CJ8UD0EyZp7eXvkwllOeHNuhkiZNs30mPLFhu77XNGIEkLemITYuRaNAVPFCw9h5rI9EUlYjQ==}
     dev: true
 
-  /@tarojs/taro-h5@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/taro-h5@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-HyN2MyH6ywZlcvEcG7FBzEhVWiCic4I6V03eleLmllaVi6LVgt9bFKmpX9oPB3nVYVVbZtJ+Itfv8cu09O0upQ==}
     dependencies:
       '@tarojs/api': 3.6.16
-      '@tarojs/components': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)(react@18.2.0)
-      '@tarojs/router': 3.6.16(@types/react@18.0.0)(postcss@8.4.30)
+      '@tarojs/components': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)(react@18.2.0)
+      '@tarojs/router': 3.6.16(@types/react@18.0.33)(postcss@8.4.30)
       '@tarojs/runtime': 3.6.16
       '@tarojs/shared': 3.6.16
       abortcontroller-polyfill: 1.7.5
@@ -2668,7 +2664,7 @@ packages:
       - vue
     dev: true
 
-  /@tarojs/taro@3.6.16(@types/react@18.0.0)(postcss@8.4.30):
+  /@tarojs/taro@3.6.16(@types/react@18.0.33)(postcss@8.4.30):
     resolution: {integrity: sha512-tHRUgi19aPhN0STxTAHk8poEXg/2gvheMDvPnOHCHSAW6/30kp+ejDTIzT/RD+Rht3WfREMLEauavPx6Q42m8A==}
     peerDependencies:
       '@types/react': '*'
@@ -2690,7 +2686,7 @@ packages:
     dependencies:
       '@tarojs/api': 3.6.16
       '@tarojs/runtime': 3.6.16
-      '@types/react': 18.0.0
+      '@types/react': 18.0.33
       postcss: 8.4.30
     dev: true
 
@@ -2784,11 +2780,11 @@ packages:
   /@types/react-dom@18.0.0:
     resolution: {integrity: sha512-49897Y0UiCGmxZqpC8Blrf6meL8QUla6eb+BBhn69dTXlmuOlzkfr7HHY/O8J25e1lTUMs+YYxSlVDAaGHCOLg==}
     dependencies:
-      '@types/react': 18.0.0
+      '@types/react': 18.0.33
     dev: true
 
-  /@types/react@18.0.0:
-    resolution: {integrity: sha512-7+K7zEQYu7NzOwQGLR91KwWXXDzmTFODRVizJyIALf6RfLv2GDpqpknX64pvRVILXCpXi7O/pua8NGk44dLvJw==}
+  /@types/react@18.0.33:
+    resolution: {integrity: sha512-sHxzVxeanvQyQ1lr8NSHaj0kDzcNiGpILEVt69g9S31/7PfMvNCKLKcsHw4lYKjs3cGNJjXSP4mYzX43QlnjNA==}
     dependencies:
       '@types/prop-types': 15.7.6
       '@types/scheduler': 0.16.3

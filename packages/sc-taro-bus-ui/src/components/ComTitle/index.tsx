@@ -5,8 +5,8 @@ import useLink from "@/hooks/useLink";
 import React from "react";
 import { ComTitleProps } from "./type";
 import "./index.scss";
-
-const ComTitle: React.FC<ComTitleProps> = (props) => {
+import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
+const ComTitle: AppUIComponents<ComTitleProps> = (props) => {
   const {
     styleType = "old",
     title,
@@ -102,5 +102,5 @@ const ComTitle: React.FC<ComTitleProps> = (props) => {
     </View>
   );
 };
-
-export default ComTitle;
+ComTitle.cmpType='Title'
+export default RegAppUIComponent(ComTitle);

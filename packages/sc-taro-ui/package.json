@@ -33,7 +33,8 @@
   },
   "scripts": {
     "generate-nutui":"node ./scripts/generate-nutui.js",
-    "build": "father dev"
+    "dev": "father dev",
+    "build": "father build"
   },
   "dependencies": {
     "@nutui/nutui-react-taro":"^2.0.18"

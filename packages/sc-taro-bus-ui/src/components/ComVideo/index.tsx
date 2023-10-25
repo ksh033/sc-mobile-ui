@@ -11,6 +11,7 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { ComVideoProps } from "./type";
 import "./index.scss";
+import { AppUIComponents, RegAppUIComponent } from "@sceditor/core";
 
 type ComVideoState = {
   /** 是否静音 */
@@ -23,7 +24,7 @@ type ComVideoState = {
   showBottomProgress?: boolean;
 };
 
-const ComVideo: React.FC<ComVideoProps> = (props) => {
+const ComVideo: AppUIComponents<ComVideoProps> = (props) => {
   const {
     autoplay = false,
     cornerType = "straight",
@@ -174,5 +175,5 @@ const ComVideo: React.FC<ComVideoProps> = (props) => {
     </View>
   );
 };
-
-export default ComVideo;
+ComVideo.cmpType='Video'
+export default RegAppUIComponent(ComVideo)
