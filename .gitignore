@@ -8,3 +8,9 @@ node_modules
 /.vscode
 **/**/lib/**
 **/**/es/**
+# visual studio code
+.history
+*.log
+
+functions/mock
+.temp/**
