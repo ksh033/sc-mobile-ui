@@ -1,28 +1,28 @@
-import { View, Text } from "@tarojs/components";
-import React, { Fragment, PropsWithChildren, useMemo } from "react";
-import ComStepper from "@/components/ComStepper";
-import ScImage from "@/components/ScImage";
-import classnames from "classnames";
-import { Color } from "@/constants/Enum";
-import ScIcon from "@/components/ScIcon";
-import { ComBaseGoodsProps } from "../../type";
-import { rootPrefixCls } from "../../index";
-import { BizSceneMap, GoodsStyleClassEnum } from "../../constants";
-import "./index.scss";
+import { View, Text } from '@tarojs/components'
+import React, { Fragment, PropsWithChildren, useMemo } from 'react'
+import ComStepper from '@/components/ComStepper'
+import ScImage from '@/components/ScImage'
+import classnames from 'classnames'
+import { Color } from '@/constants/Enum'
+import ScIcon from '@/components/ScIcon'
+import { ComBaseGoodsProps } from '../../type'
+import { rootPrefixCls } from '../../index'
+import { BizSceneMap, GoodsStyleClassEnum } from '../../constants'
+import './index.scss'
 
 const ComHorizontalGoodsItem: React.FC<
-  PropsWithChildren<Omit<ComBaseGoodsProps, "layout"> & { prefixCls: string }>
-> = (props) => {
+  PropsWithChildren<Omit<ComBaseGoodsProps, 'layout'> & { prefixCls: string }>
+> = props => {
   const {
-    goodsStyle = "CARD_SHADOW",
-    borderRadiusType = "round",
+    goodsStyle = 'NO_BORDER_WHITEBG',
+    borderRadiusType = 'round',
     goodsTagNode,
-    size = "normal",
-    displayScale = "1",
+    size = 'normal',
+    displayScale = '1',
     nameLine = 1,
     descLine = 1,
-    imageFillStyle = "cover",
-    textStyleType = "normal",
+    imageFillStyle = 'cover',
+    textStyleType = 'normal',
     showGoodsName = true,
     showGoodsDesc = true,
     showDiscount = true,
@@ -32,37 +32,37 @@ const ComHorizontalGoodsItem: React.FC<
     showLimit = true,
     showBizScene = true,
     showValidReason = false,
-    validReasonLocation = "center",
-    goodsPricePosition = "center",
+    validReasonLocation = 'center',
+    goodsPricePosition = 'center',
     buyBtn = true,
     showQuantity = false,
     showUnitPrice = false,
     showImageMark = false,
     buyBtnExpress = {
-      btnType: "default",
-      btnShape: "circle",
+      btnType: 'default',
+      btnShape: 'circle'
     },
-    showCornerMark = "none",
+    showCornerMark = 'none',
     goods,
     prefixCls,
-    toDetail,
-  } = props;
+    toDetail
+  } = props
 
   const fontWeightStyles = useMemo(() => {
     return {
-      fontWeight: textStyleType === "normal" ? 400 : 600,
-    };
-  }, [textStyleType]);
+      fontWeight: textStyleType === 'normal' ? 400 : 600
+    }
+  }, [textStyleType])
 
   return (
     <View
       className={classnames(
         rootPrefixCls,
         prefixCls,
-        GoodsStyleClassEnum[goodsStyle],
+        `${rootPrefixCls}-${GoodsStyleClassEnum[goodsStyle]}`,
         {
-          [`${prefixCls}-circle`]: borderRadiusType === "round",
-          [`${prefixCls}-small`]: size === "small",
+          [`${prefixCls}-circle`]: borderRadiusType === 'round',
+          [`${prefixCls}-small`]: size === 'small'
         }
       )}
       onClick={toDetail}
@@ -70,12 +70,12 @@ const ComHorizontalGoodsItem: React.FC<
       <View className={`${prefixCls}__image`}>
         {/** 商品图片  */}
         <ScImage
-          src={goods?.goodsThumb || ""}
+          src={goods?.goodsThumb || ''}
           fit={imageFillStyle}
           imageClass={`${prefixCls}__image`}
-          radius={borderRadiusType === "round" ? 12 : 0}
+          radius={borderRadiusType === 'round' ? 12 : 0}
         />
-        {showCornerMark != "none" &&
+        {showCornerMark != 'none' &&
           goods?.bizScene &&
           goods?.leftCornerText != null && (
             <View className={`${rootPrefixCls}_subtitle`}>
@@ -100,14 +100,14 @@ const ComHorizontalGoodsItem: React.FC<
           className={classnames(`${prefixCls}-content_name`, [
             nameLine === 1
               ? `${rootPrefixCls}_ellipsis-one`
-              : `${rootPrefixCls}_ellipsis-two`,
+              : `${rootPrefixCls}_ellipsis-two`
           ])}
         >
           <Text
             className={classnames(`${prefixCls}-content_name__text`, [
               nameLine === 1
                 ? `${rootPrefixCls}_ellipsis-one`
-                : `${rootPrefixCls}_ellipsis-two`,
+                : `${rootPrefixCls}_ellipsis-two`
             ])}
             style={fontWeightStyles}
           >
@@ -122,8 +122,8 @@ const ComHorizontalGoodsItem: React.FC<
               )}
             {/** 商品标题 */}
             {showGoodsName && (
-              <Text style={{ verticalAlign: "middle" }}>
-                {goods?.goodsName || "暂无名称"}
+              <Text style={{ verticalAlign: 'middle' }}>
+                {goods?.goodsName || '暂无名称'}
               </Text>
             )}
           </Text>
@@ -132,19 +132,19 @@ const ComHorizontalGoodsItem: React.FC<
         {/** 商品描述 */}
         {showGoodsDesc &&
           goods?.goodsDesc != null &&
-          goods?.goodsDesc !== "" && (
+          goods?.goodsDesc !== '' && (
             <View
               className={classnames(`${prefixCls}-content_desc`, [
                 descLine === 1
                   ? `${rootPrefixCls}_ellipsis-one`
-                  : `${rootPrefixCls}_ellipsis-two`,
+                  : `${rootPrefixCls}_ellipsis-two`
               ])}
             >
               <Text
                 className={classnames(`${prefixCls}-content_desc__text`, [
                   descLine === 1
                     ? `${rootPrefixCls}_ellipsis-one`
-                    : `${rootPrefixCls}_ellipsis-two`,
+                    : `${rootPrefixCls}_ellipsis-two`
                 ])}
               >
                 {goods?.goodsDesc}
@@ -161,8 +161,8 @@ const ComHorizontalGoodsItem: React.FC<
             {/** 满减 */}
             {!showValidReason &&
               showFullReduction &&
-              goods?.goodsPromotion?.promotionType === "PRICE_BREAK" &&
-              goods?.goodsPromotion?.pagePromotionDesc != "" && (
+              goods?.goodsPromotion?.promotionType === 'PRICE_BREAK' &&
+              goods?.goodsPromotion?.pagePromotionDesc != '' && (
                 <View
                   className={classnames(
                     `${rootPrefixCls}-label`,
@@ -185,8 +185,8 @@ const ComHorizontalGoodsItem: React.FC<
             {/** 折扣信息 */}
             {!showValidReason &&
               showLimit &&
-              goods?.goodsPromotion?.promotionType === "GOODS_DISCOUNT" &&
-              goods?.goodsPromotion?.pagePromotionDesc != "" && (
+              goods?.goodsPromotion?.promotionType === 'GOODS_DISCOUNT' &&
+              goods?.goodsPromotion?.pagePromotionDesc != '' && (
                 <View
                   className={classnames(
                     `${rootPrefixCls}-label`,
@@ -219,7 +219,7 @@ const ComHorizontalGoodsItem: React.FC<
             {/** 商品失效状态 */}
             {showValidReason &&
               goods?.validStatus != null &&
-              validReasonLocation === "center" && (
+              validReasonLocation === 'center' && (
                 <Text className={`${rootPrefixCls}-nouse`}>
                   {goods?.validReason}
                 </Text>
@@ -251,7 +251,7 @@ const ComHorizontalGoodsItem: React.FC<
         <View className={`${prefixCls}_bar`}>
           <View className={`${prefixCls}_bar-left`}>
             {/** 价格  */}
-            {showGoodsPrice && goodsPricePosition === "center" && (
+            {showGoodsPrice && goodsPricePosition === 'center' && (
               <Text className={`${prefixCls}_price`} style={fontWeightStyles}>
                 <Text className={`${prefixCls}_price__unit`}>¥</Text>
                 {goods?.goodsPromotion
@@ -260,7 +260,7 @@ const ComHorizontalGoodsItem: React.FC<
               </Text>
             )}
             {/** 划线价格  */}
-            {showMarkPrice && goodsPricePosition === "center" && (
+            {showMarkPrice && goodsPricePosition === 'center' && (
               <Text className={`${prefixCls}_mark-price`}>
                 ¥{goods?.goodsPromotion ? goods?.goodsPrice : goods?.markPrice}
               </Text>
@@ -268,7 +268,7 @@ const ComHorizontalGoodsItem: React.FC<
           </View>
           {showValidReason &&
           goods?.validStatus != null &&
-          validReasonLocation === "rightBottom" ? (
+          validReasonLocation === 'rightBottom' ? (
             <Text className={`${prefixCls}_bar-valid`}>
               {goods?.validReason}
             </Text>
@@ -287,7 +287,7 @@ const ComHorizontalGoodsItem: React.FC<
         {goods?.cartPromotionWarning != null && (
           <View className={classnames(`${rootPrefixCls}-waring`)}>
             <ScIcon
-              value="info-circle-outlined"
+              value='info-circle-outlined'
               size={22}
               color={Color.red}
             ></ScIcon>
@@ -300,7 +300,7 @@ const ComHorizontalGoodsItem: React.FC<
         {props.children}
       </View>
       <View className={`${prefixCls}-right`}>
-        {showGoodsPrice && goodsPricePosition === "right" && (
+        {showGoodsPrice && goodsPricePosition === 'right' && (
           <Text className={`${prefixCls}_price`} style={fontWeightStyles}>
             <Text className={`${prefixCls}_price__unit`}>¥</Text>
             {goods?.goodsPromotion
@@ -313,7 +313,7 @@ const ComHorizontalGoodsItem: React.FC<
         )}
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default React.memo(ComHorizontalGoodsItem);
+export default React.memo(ComHorizontalGoodsItem)

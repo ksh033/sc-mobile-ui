@@ -1,10 +1,10 @@
-import React, { PropsWithChildren } from "react";
-import { ComBaseGoodsProps } from "./type";
-import "./index.scss";
-import Horizontal from "./components/Horizontal";
-import Vertical from "./components/Vertical";
+import React, { PropsWithChildren } from 'react'
+import { ComBaseGoodsProps } from './type'
+import './index.scss'
+import Horizontal from './components/Horizontal'
+import Vertical from './components/Vertical'
 
-export const rootPrefixCls = "com-goods-item";
+export const rootPrefixCls = 'com-goods-item'
 
 // const ComBaseGoods: React.FC<ComBaseGoodsProps> = (props) => {
 //   const {
@@ -49,24 +49,24 @@ class ComBaseGoods extends React.Component<
     // console.log("render");
     // console.log("endTIme", new Date().getTime());
     const {
-      layout = "horizontal",
-      buyBtnExpress = { btnType: "home", btnShape: "circle" },
+      layout = 'horizontal',
+      buyBtnExpress = { btnType: 'home', btnShape: 'circle' },
       goods,
       openSceneCart,
       ...resprops
-    } = this.props;
+    } = this.props
 
     const map = {
       horizontal: Horizontal,
-      vertical: Vertical,
-    };
+      vertical: Vertical
+    }
 
-    const Cmp = map[layout];
-
+    const Cmp = map[layout]
+    console.log('goodsStyle', resprops.goodsStyle)
     const prefixCls =
-      layout === "horizontal"
+      layout === 'horizontal'
         ? `${rootPrefixCls}-horizontal`
-        : `${rootPrefixCls}-vertical`;
+        : `${rootPrefixCls}-vertical`
     return (
       <Cmp
         {...resprops}
@@ -76,7 +76,7 @@ class ComBaseGoods extends React.Component<
       >
         {this.props.children}
       </Cmp>
-    );
+    )
   }
 }
-export default ComBaseGoods;
+export default ComBaseGoods

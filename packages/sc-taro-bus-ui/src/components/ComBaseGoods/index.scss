@@ -1,14 +1,14 @@
-@import "@/style/index.scss"; // 引入基础配置
+@import '@/style/index.scss'; // 引入基础配置
 
-$my-class-prefix: "com-goods-item";
+$my-class-prefix: 'com-goods-item';
 
 .#{$my-class-prefix} {
   flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: $sc-color-bg-light;
   width: 100%;
+  background-color: $sc-color-bg-light;
 
   &-invalid {
     position: absolute;
@@ -175,4 +175,20 @@ $my-class-prefix: "com-goods-item";
   &__blod {
     font-weight: blod;
   }
+}
+
+.#{$my-class-prefix}-noborder-white {
+  background-color: #fff;
+}
+
+.#{$my-class-prefix}-card-shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.#{$my-class-prefix}-white-border {
+  background-color: #fff;
+  border: 1px solid rgba(50, 50, 51, 0.1);
+}
+.#{$my-class-prefix}-noborder-transparent {
+  background-color: inherit;
 }

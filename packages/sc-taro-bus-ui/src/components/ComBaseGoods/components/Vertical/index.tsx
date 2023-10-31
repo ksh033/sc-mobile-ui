@@ -1,28 +1,28 @@
-import React, { Fragment, PropsWithChildren, useMemo, useRef } from "react";
-import { View, Text } from "@tarojs/components";
-import ComStepper from "@/components/ComStepper";
-import ScImage from "@/components/ScImage";
-import classnames from "classnames";
-import { rootPrefixCls } from "../../index";
-import { BizSceneMap, GoodsStyleClassEnum, heightScale } from "../../constants";
-import { ComBaseGoodsProps } from "../../type";
+import React, { Fragment, PropsWithChildren, useMemo, useRef } from 'react'
+import { View, Text } from '@tarojs/components'
+import ComStepper from '@/components/ComStepper'
+import ScImage from '@/components/ScImage'
+import classnames from 'classnames'
+import { rootPrefixCls } from '../../index'
+import { BizSceneMap, GoodsStyleClassEnum, heightScale } from '../../constants'
+import { ComBaseGoodsProps } from '../../type'
 
-import "./index.scss";
+import './index.scss'
 
 const ComVerticalGoodsItem: React.FC<
-  PropsWithChildren<Omit<ComBaseGoodsProps, "layout"> & { prefixCls: string }>
-> = (props) => {
+  PropsWithChildren<Omit<ComBaseGoodsProps, 'layout'> & { prefixCls: string }>
+> = props => {
   const {
-    goodsStyle = "CARD_SHADOW",
-    borderRadiusType = "round",
+    goodsStyle = 'NO_BORDER_WHITEBG',
+    borderRadiusType = 'round',
     goodsTagNode,
-    size = "normal",
-    displayScale = "1",
+    size = 'normal',
+    displayScale = '1',
     nameLine = 2,
     descLine = 1,
-    imageFillStyle = "cover",
-    textStyleType = "normal",
-    textAlignType = "left",
+    imageFillStyle = 'cover',
+    textStyleType = 'normal',
+    textAlignType = 'left',
     showGoodsName = true,
     showGoodsDesc = true,
     showDiscount = true,
@@ -34,35 +34,35 @@ const ComVerticalGoodsItem: React.FC<
     showValidReason = false,
     showImageMark = false,
     showUnitPrice = false,
-    validReasonLocation = "center",
+    validReasonLocation = 'center',
     buyBtn = true,
     buyBtnExpress = {},
-    showCornerMark = "none",
+    showCornerMark = 'none',
     goods,
     prefixCls,
-    priceLayout = "horizontal",
-    toDetail,
-  } = props;
+    priceLayout = 'horizontal',
+    toDetail
+  } = props
 
-  const ref = useRef<React.MutableRefObject<React.LegacyRef<any>>>(null);
+  const ref = useRef<React.MutableRefObject<React.LegacyRef<any>>>(null)
 
   const fontWeightStyles = useMemo(() => {
     return {
-      fontWeight: textStyleType === "normal" ? 400 : 600,
-    };
-  }, [textStyleType]);
+      fontWeight: textStyleType === 'normal' ? 400 : 600
+    }
+  }, [textStyleType])
 
   /** 名称高度 */
   const nameHeight = useMemo(() => {
-    if (size === "small") {
-      return nameLine === 1 ? 14 : 26;
+    if (size === 'small') {
+      return nameLine === 1 ? 14 : 26
     }
-    return nameLine === 1 ? 16 : 32;
-  }, [size, nameLine]);
+    return nameLine === 1 ? 16 : 32
+  }, [size, nameLine])
 
   const descHeight = useMemo(() => {
-    return descLine === 1 ? 12 : 24;
-  }, [descLine]);
+    return descLine === 1 ? 12 : 24
+  }, [descLine])
 
   return (
     <View
@@ -71,29 +71,29 @@ const ComVerticalGoodsItem: React.FC<
       className={classnames({
         [`${rootPrefixCls}`]: true,
         [`${prefixCls}`]: true,
-        [`${GoodsStyleClassEnum[goodsStyle]}`]: true,
-        [`${prefixCls}-circle`]: borderRadiusType === "round",
-        [`${prefixCls}-small`]: size === "small",
+        [`${rootPrefixCls}-${GoodsStyleClassEnum[goodsStyle]}`]: true,
+        [`${prefixCls}-circle`]: borderRadiusType === 'round',
+        [`${prefixCls}-small`]: size === 'small'
       })}
     >
       <View
         className={`${prefixCls}__image`}
-        style={{ paddingTop: heightScale(displayScale) + "%" }}
+        style={{ paddingTop: heightScale(displayScale) + '%' }}
       >
         <View className={`${prefixCls}__image-container`}>
           {/** 商品图片  */}
           <ScImage
-            src={goods?.goodsThumb || ""}
+            src={goods?.goodsThumb || ''}
             fit={imageFillStyle}
             imageClass={`${prefixCls}__image-container`}
-            radius={borderRadiusType === "round" ? 10 : 0}
+            radius={borderRadiusType === 'round' ? 10 : 0}
           />
         </View>
 
-        {showCornerMark != "none" &&
+        {showCornerMark != 'none' &&
           goods?.bizScene &&
           goods?.leftCornerText != null &&
-          goods?.leftCornerText !== "" && (
+          goods?.leftCornerText !== '' && (
             <View className={`${rootPrefixCls}_subtitle`}>
               <Text className={`${rootPrefixCls}_subtitle__text`}>
                 {goods?.leftCornerText}
@@ -114,14 +114,14 @@ const ComVerticalGoodsItem: React.FC<
         <View
           className={classnames(`${prefixCls}-content_name`)}
           style={{
-            height: nameHeight,
+            height: nameHeight
           }}
         >
           <Text
             className={classnames(`${prefixCls}-content_name__text`, [
               nameLine === 1
                 ? `${rootPrefixCls}_ellipsis-one`
-                : `${rootPrefixCls}_ellipsis-two`,
+                : `${rootPrefixCls}_ellipsis-two`
             ])}
             style={fontWeightStyles}
           >
@@ -136,8 +136,8 @@ const ComVerticalGoodsItem: React.FC<
               )}
             {/** 商品标题 */}
             {showGoodsName && (
-              <Text style={{ verticalAlign: "middle" }}>
-                {goods?.goodsName || "暂无名称"}
+              <Text style={{ verticalAlign: 'middle' }}>
+                {goods?.goodsName || '暂无名称'}
               </Text>
             )}
           </Text>
@@ -149,17 +149,17 @@ const ComVerticalGoodsItem: React.FC<
             className={classnames(`${prefixCls}-content_desc`, [
               descLine === 1
                 ? `${rootPrefixCls}_ellipsis-one`
-                : `${rootPrefixCls}_ellipsis-two`,
+                : `${rootPrefixCls}_ellipsis-two`
             ])}
             style={{
-              height: descHeight,
+              height: descHeight
             }}
           >
             <Text
               className={classnames(`${prefixCls}-content_desc__text`, [
                 descLine === 1
                   ? `${rootPrefixCls}_ellipsis-one`
-                  : `${rootPrefixCls}_ellipsis-two`,
+                  : `${rootPrefixCls}_ellipsis-two`
               ])}
             >
               {goods?.goodsDesc}
@@ -176,8 +176,8 @@ const ComVerticalGoodsItem: React.FC<
             {/** 满减 */}
             {!showValidReason &&
               showFullReduction &&
-              goods?.goodsPromotion?.promotionType === "PRICE_BREAK" &&
-              goods?.goodsPromotion?.pagePromotionDesc != "" && (
+              goods?.goodsPromotion?.promotionType === 'PRICE_BREAK' &&
+              goods?.goodsPromotion?.pagePromotionDesc != '' && (
                 <View
                   className={classnames(
                     `${rootPrefixCls}-label`,
@@ -200,8 +200,8 @@ const ComVerticalGoodsItem: React.FC<
             {/** 折扣信息 */}
             {!showValidReason &&
               showLimit &&
-              goods?.goodsPromotion?.promotionType === "GOODS_DISCOUNT" &&
-              goods?.goodsPromotion?.pagePromotionDesc != "" && (
+              goods?.goodsPromotion?.promotionType === 'GOODS_DISCOUNT' &&
+              goods?.goodsPromotion?.pagePromotionDesc != '' && (
                 <View
                   className={classnames(
                     `${rootPrefixCls}-label`,
@@ -234,7 +234,7 @@ const ComVerticalGoodsItem: React.FC<
             {/** 商品失效状态 */}
             {showValidReason &&
               goods?.validStatus != null &&
-              validReasonLocation === "center" && (
+              validReasonLocation === 'center' && (
                 <Text className={`${rootPrefixCls}-nouse`}>
                   {goods?.validReason}
                 </Text>
@@ -265,7 +265,7 @@ const ComVerticalGoodsItem: React.FC<
         <View className={`${prefixCls}_bar`}>
           <View
             className={classnames(`${prefixCls}_bar-left`, {
-              [`${prefixCls}_bar-vertical`]: priceLayout === "vertical",
+              [`${prefixCls}_bar-vertical`]: priceLayout === 'vertical'
             })}
           >
             {/** 价格  */}
@@ -288,7 +288,7 @@ const ComVerticalGoodsItem: React.FC<
 
           {showValidReason &&
           goods?.validStatus != null &&
-          validReasonLocation === "rightBottom" ? (
+          validReasonLocation === 'rightBottom' ? (
             <Text className={`${prefixCls}_bar-valid`}>
               {goods?.validReason}
             </Text>
@@ -307,7 +307,7 @@ const ComVerticalGoodsItem: React.FC<
         {props.children}
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default React.memo(ComVerticalGoodsItem);
+export default React.memo(ComVerticalGoodsItem)
