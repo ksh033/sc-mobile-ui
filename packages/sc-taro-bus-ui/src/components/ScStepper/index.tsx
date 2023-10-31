@@ -1,22 +1,22 @@
-import { ITouchEvent, View } from "@tarojs/components";
-import React, { useMemo } from "react";
-import classnames from "classnames";
-import InitBtn from "./components/InitBtn";
-import Stepper from "./components/Stepper";
-import { ScStepperProps } from "./type";
-import "./index.scss";
+import { ITouchEvent, View } from '@tarojs/components'
+import React, { useMemo } from 'react'
+import classnames from 'classnames'
+import InitBtn from './components/InitBtn'
+import Stepper from './components/Stepper'
+import { ScStepperProps } from './type'
+import './index.scss'
 
-export const prefixCls = "com-stepper";
+export const prefixCls = 'com-stepper'
 
-const ScStepper: React.FC<ScStepperProps> = (props) => {
+const ScStepper: React.FC<ScStepperProps> = props => {
   const {
-    initBtnType = "default",
+    initBtnType = 'default',
     showInitBtn = false,
-    btnShape = "circle",
+    btnShape = 'circle',
     value = 0,
     className,
     style = {},
-    size = "normal",
+    size = 'normal',
     disabled = false,
     min = 0,
     max = 999999,
@@ -26,31 +26,30 @@ const ScStepper: React.FC<ScStepperProps> = (props) => {
     plusClick,
     onValueChange,
     hideMinusBtn = false,
-    zeroHideMinusBtn = true,
-  } = props;
+    zeroHideMinusBtn = true
+  } = props
   const hasInitBtn = useMemo(() => {
-    return showInitBtn && value === 0;
-  }, [value, showInitBtn]);
+    return showInitBtn && value === 0
+  }, [value, showInitBtn])
 
   const customMinusClick = (event: ITouchEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
+    event.preventDefault()
+    event.stopPropagation()
     if (value - 1 >= min) {
-      minusClick?.(event);
-      onValueChange?.(value - 1);
+      minusClick?.(event)
+      onValueChange?.(value - 1)
     }
-  };
+  }
 
   const customPlusClick = (event: ITouchEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    event.stopPropagation();
+    event.stopPropagation()
     if (value + 1 <= max) {
-      plusClick?.(event);
-      onValueChange?.(value + 1);
+      plusClick?.(event)
+      onValueChange?.(value + 1)
     }
-  };
-  console.log("ScStepperScStepper");
+  }
   return (
     <View
       className={classnames(`${prefixCls}`, className)}
@@ -77,9 +76,9 @@ const ScStepper: React.FC<ScStepperProps> = (props) => {
         ></Stepper>
       )}
     </View>
-  );
-};
+  )
+}
 
 export default React.memo(ScStepper, (preProps, nextProps) => {
-  return preProps.value === nextProps.value;
-});
+  return preProps.value === nextProps.value
+})

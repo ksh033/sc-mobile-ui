@@ -1,127 +1,126 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { View } from "@tarojs/components";
-import { ComGoodsLayoutProps } from "./type";
-import { ComGoodsItemDataProps } from "../ComBaseGoods/type";
-import G1 from "./G1";
-import G2 from "./G2";
-import G3 from "./G3";
-import G5 from "./G5";
-import G4 from "./G4";
-import G7 from "./G7";
-import "./index.scss";
-import { ComWaterfallRef } from "../ComWaterfall";
-import React from "react";
-import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { View } from '@tarojs/components'
+import { ComGoodsLayoutProps } from './type'
+import { ComGoodsItemDataProps } from '../ComBaseGoods/type'
+import G1 from './G1'
+import G2 from './G2'
+import G3 from './G3'
+import G5 from './G5'
+import G4 from './G4'
+import G7 from './G7'
+import './index.scss'
+import { ComWaterfallRef } from '../ComWaterfall'
+import React from 'react'
+import { RegAppUIComponent, type AppUIComponents } from '@sceditor/core'
 
 const defaultItemData: ComGoodsItemDataProps = {
-  goodsId: "1",
-  bizScene: "SHOP_CONSUME",
-  goodsType: "NORMAL",
+  goodsId: '1',
+  bizScene: 'SHOP_CONSUME',
+  goodsType: 'NORMAL',
   selectSpecFlag: false,
-  goodsName: "这里显示商品名称，最多显示1行",
-  goodsDesc: "这里显示商品描述，最多显示1行",
-  goodsThumb: "12",
+  goodsName: '这里显示商品名称，最多显示1行',
+  goodsDesc: '这里显示商品描述，最多显示1行',
+  goodsThumb: '12',
   markPrice: 0,
   goodsPrice: 99,
   goodsPromotion: {
-    displayName: "限时折扣",
+    displayName: '限时折扣',
     limitQuantity: 1,
     discountPrice: 1.56,
-    dataId: "1531169564847493120",
-  },
-};
+    dataId: '1531169564847493120'
+  }
+}
 
-const defaultMapNum:any = {
+const defaultMapNum: any = {
   G1: 3,
   G2: 4,
   G3: 6,
   G4: 3,
   G5: 4,
-  G7: 3,
-};
+  G7: 3
+}
 
 const getDefaultList = (num: number) => {
-  const list: ComGoodsItemDataProps[] = [];
+  const list: ComGoodsItemDataProps[] = []
   for (let i = 0; i < num; i++) {
     list.push({
       ...defaultItemData,
-      goodsId: i + "",
-    });
+      goodsId: i + ''
+    })
   }
-  return list;
-};
+  return list
+}
 
 /** 商品 */
-const ComGoodsLayout:AppUIComponents<ComGoodsLayoutProps> = (props) => {
+const ComGoodsLayout: AppUIComponents<ComGoodsLayoutProps> = props => {
   const {
-    goodsType = "G1",
+    goodsType = 'G1',
     pageMargin = 0,
     preview = false,
     list = [],
     ...restProps
-  } = props;
+  } = props
 
-  const map:any = {
+  const map: any = {
     G1: G1,
     G2: G2,
     G3: G3,
     G4: G4,
     G5: G5,
-    G7: G7,
-  };
-  const WarpCommponent = map[goodsType];
+    G7: G7
+  }
+  const WarpCommponent = map[goodsType]
 
   /** 瀑布流ref */
-  const waterfallRef = useRef<ComWaterfallRef>(null);
+  const waterfallRef = useRef<ComWaterfallRef>(null)
   /** 判断是否使用list 数据为了清空瀑布流不刷新问题 */
-  const useList = useRef<boolean>(list.length > 0);
+  const useList = useRef<boolean>(list.length > 0)
 
   const marginStyles: React.CSSProperties = useMemo(() => {
-    const innerMargin = Math.ceil(Number(restProps.goodsMargin || 0) / 2);
-    if (goodsType === "G3" || goodsType === "G5" || goodsType === "G7") {
+    const innerMargin = Math.ceil(Number(restProps.goodsMargin || 0) / 2)
+    if (goodsType === 'G3' || goodsType === 'G5' || goodsType === 'G7') {
       return {
         marginLeft: -innerMargin,
-        marginRight: -innerMargin,
-      };
+        marginRight: -innerMargin
+      }
     }
-    return {};
-  }, [restProps.goodsMargin, goodsType]);
+    return {}
+  }, [restProps.goodsMargin, goodsType])
 
-  const [innerList, setInnerList] = useState<ComGoodsItemDataProps[]>(list);
+  const [innerList, setInnerList] = useState<ComGoodsItemDataProps[]>(list)
 
   useEffect(() => {
     if (Array.isArray(list) && list.length > 0) {
-      console.log("list", list);
+      console.log('list', list)
       if (!useList.current) {
-        waterfallReset();
+        waterfallReset()
       }
-      setInnerList(list);
-      return;
+      setInnerList(list)
+      return
     }
     if (preview) {
       if (useList.current) {
-        waterfallReset();
+        waterfallReset()
       }
-      const num = defaultMapNum[goodsType];
-      setInnerList(getDefaultList(num));
+      const num = defaultMapNum[goodsType]
+      setInnerList(getDefaultList(num))
     }
-  }, [goodsType, JSON.stringify(list), preview]);
+  }, [goodsType, JSON.stringify(list), preview])
 
   /** 瀑布流刷新 */
   const waterfallReset = () => {
     if (waterfallRef.current) {
-      waterfallRef.current?.reset();
+      waterfallRef.current?.reset()
     }
-  };
-  console.log("innerList", innerList);
+  }
   if (WarpCommponent) {
     return (
       <View
-        className="com-goods-layout"
+        className='com-goods-layout'
         style={{
           paddingLeft: pageMargin,
           paddingRight: pageMargin,
-          ...marginStyles,
+          ...marginStyles
         }}
       >
         <WarpCommponent
@@ -130,10 +129,10 @@ const ComGoodsLayout:AppUIComponents<ComGoodsLayoutProps> = (props) => {
           ref={waterfallRef}
         ></WarpCommponent>
       </View>
-    );
+    )
   }
 
-  return <View></View>;
-};
-ComGoodsLayout.cmpType='GoodsLayout'
-export default RegAppUIComponent(ComGoodsLayout);
+  return <View></View>
+}
+ComGoodsLayout.cmpType = 'GoodsLayout'
+export default RegAppUIComponent(ComGoodsLayout)
