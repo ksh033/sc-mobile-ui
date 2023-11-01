@@ -74,7 +74,7 @@ const ComGoodsLayout: AppUIComponents<ComGoodsLayoutProps> = props => {
   /** 瀑布流ref */
   const waterfallRef = useRef<ComWaterfallRef>(null)
   /** 判断是否使用list 数据为了清空瀑布流不刷新问题 */
-  const useList = useRef<boolean>(list.length > 0)
+  const resetRef = useRef<boolean>(false)
 
   const marginStyles: React.CSSProperties = useMemo(() => {
     const innerMargin = Math.ceil(Number(restProps.goodsMargin || 0) / 2)
@@ -87,22 +87,23 @@ const ComGoodsLayout: AppUIComponents<ComGoodsLayoutProps> = props => {
     return {}
   }, [restProps.goodsMargin, goodsType])
 
-  const [innerList, setInnerList] = useState<ComGoodsItemDataProps[]>(list)
+  const [innerList, setInnerList] = useState<ComGoodsItemDataProps[]>([])
 
   useEffect(() => {
     if (Array.isArray(list) && list.length > 0) {
-      console.log('list', list)
-      if (!useList.current) {
+      if (resetRef.current) {
+        resetRef.current = false
         waterfallReset()
       }
-      setInnerList(list)
+      setTimeout(() => {
+        console.log('list', list)
+        setInnerList(list)
+      }, 200)
       return
     }
     if (preview) {
-      if (useList.current) {
-        waterfallReset()
-      }
       const num = defaultMapNum[goodsType]
+      resetRef.current = true
       setInnerList(getDefaultList(num))
     }
   }, [goodsType, JSON.stringify(list), preview])

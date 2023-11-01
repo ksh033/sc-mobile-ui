@@ -216,7 +216,7 @@ const ComWaterfall = React.forwardRef<ComWaterfallRef, ComWaterfallProps>(
     }
 
     const _render = (rlist: any, callback: any) => {
-      const newCols = [...colsRef.current]
+      const newCols = Array.isArray(colsRef.current) ? [...colsRef.current] : []
       appending.current = true
       for (let i = 0; i < rlist.length; i++) {
         // const arr = await getAllRect('.waterfall .col');
@@ -237,7 +237,7 @@ const ComWaterfall = React.forwardRef<ComWaterfallRef, ComWaterfallProps>(
           Array.isArray(newCols[minHeightIndex])
             ? newCols[minHeightIndex].length
             : 0
-        if (minHeightIndex > -1) {
+        if (minHeightIndex > -1 && newCols[minHeightIndex]) {
           newCols[minHeightIndex][len] = item
         }
       }
@@ -395,9 +395,8 @@ const ComWaterfall = React.forwardRef<ComWaterfallRef, ComWaterfallProps>(
       thisTimeloadedList.current = []
       loadedList.current = []
       waitAppendList.current = []
-      initWidthColsNum.current = 0
+
       loading.current = false
-      colsRef.current = []
       setLoadingList([])
 
       nextTick(() => {

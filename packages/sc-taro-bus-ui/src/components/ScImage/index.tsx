@@ -182,9 +182,11 @@ const StaticImage: React.FC<ImageProps> = props => {
 
   useEffect(() => {
     if (src != null) {
+      setError(false)
       setCustomSrc(imageUrl(src, isStaticImage))
     } else {
       setCustomSrc('')
+      setError(true)
     }
   }, [src, isStaticImage])
 
