@@ -4,15 +4,17 @@
   "compilerOptions": {
     "baseUrl": "./",
     "jsx": "react-jsx",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./types"
-    ],
+    "typeRoots": ["./node_modules/@types", "./types"],
     "paths": {
       "@/*": ["src/*"],
-    
+      "@sc-mobile/sc-taro-ui": ["../sc-taro-ui/src/index.ts"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "types/global.d.ts"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "types/global.d.ts"
+  ],
   "exclude": ["./node_modules/*", "src/sites/*", "src/sites/config.js"]
 }

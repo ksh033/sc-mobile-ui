@@ -1,56 +1,56 @@
-import { getWindowWidth } from "@/utils/common";
-import { View, Text, ScrollView } from "@tarojs/components";
-import { useMemo } from "react";
-import classnames from "classnames";
+import { getWindowWidth } from '@/utils/common'
+import { RegAppUIComponent, type AppUIComponents } from '@sceditor/core'
+import { View, Text, ScrollView } from '@tarojs/components'
+import { useMemo } from 'react'
+import classnames from 'classnames'
 import {
   ComImageTextNavItem,
   ComImageTextNavProps,
-  ComImageTextNavShowMethod,
-} from "./type";
-import ScImage from "../ScImage";
-import "./index.scss";
-import React from "react";
-import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
-const scrollMap:any = {
+  ComImageTextNavShowMethod
+} from './type'
+import ScImage from '../ScImage'
+import './index.scss'
+
+const scrollMap: any = {
   4: 0.94,
   5: 0.96,
   6: 0.97,
   7: 0.98,
   8: 0.99,
   9: 0.98,
-  10: 0.99,
-};
+  10: 0.99
+}
 
 /** 图文导航 */
-const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
+const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = props => {
   const {
     count = 4,
-    showMethod = "imageText",
+    showMethod = 'imageText',
     subEntry = [],
-    backgroundColor = "#fff",
-    fontColor = "#000",
-    imageFillStyle = "nowrap",
-  } = props;
+    backgroundColor = '#fff',
+    fontColor = '#000',
+    imageFillStyle = 'nowrap'
+  } = props
 
-  const prefixCls = "com-imagetext-nav";
+  const prefixCls = 'com-imagetext-nav'
 
   const windowWidth = useMemo(() => {
-    return getWindowWidth();
-  }, []);
+    return getWindowWidth()
+  }, [])
 
   /**页面宽度 */
   const width = useMemo(() => {
-    let num = subEntry.length;
-    return Math.ceil(windowWidth / num);
-  }, [subEntry.length, windowWidth]);
+    let num = subEntry.length
+    return Math.ceil(windowWidth / num)
+  }, [subEntry.length, windowWidth])
 
   const firstItem = useMemo(() => {
-    let item: ComImageTextNavItem | undefined;
+    let item: ComImageTextNavItem | undefined
     if (Array.isArray(subEntry) && subEntry.length > 0) {
-      item = subEntry.find((it) => it.imageUrl);
+      item = subEntry.find(it => it.imageUrl)
     }
-    return item;
-  }, [JSON.stringify(subEntry)]);
+    return item
+  }, [JSON.stringify(subEntry)])
 
   /** 图片高度 */
   const height = useMemo(() => {
@@ -59,15 +59,15 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
         (Number(firstItem.imageHeight || 0) /
           Number(firstItem.imageWidth || 0)) *
           width
-      );
+      )
     }
-    return 200;
-  }, [JSON.stringify(firstItem), width]);
+    return 200
+  }, [JSON.stringify(firstItem), width])
 
   const scrolleWidth = useMemo(() => {
-    let scale = scrollMap[count] || 1;
-    return Math.ceil((windowWidth * scale) / (count - 1));
-  }, [count, windowWidth]);
+    let scale = scrollMap[count] || 1
+    return Math.ceil((windowWidth * scale) / (count - 1))
+  }, [count, windowWidth])
 
   const scrolleHeight = useMemo(() => {
     if (firstItem) {
@@ -75,10 +75,10 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
         (Number(firstItem.imageHeight || 0) /
           Number(firstItem.imageWidth || 0)) *
           scrolleWidth
-      );
+      )
     }
-    return 200;
-  }, [JSON.stringify(firstItem), scrolleWidth]);
+    return 200
+  }, [JSON.stringify(firstItem), scrolleWidth])
 
   const render = (
     method: ComImageTextNavShowMethod,
@@ -100,7 +100,7 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
                     className={`${prefixCls}__image`}
                     style={{ width: itemWidth, height: itemheight }}
                   >
-                    <ScImage src={it.imageUrl || ""} fit="cover"></ScImage>
+                    <ScImage src={it.imageUrl || ''} fit='cover'></ScImage>
                   </View>
                   <View className={`${prefixCls}__nav-title`}>
                     <Text
@@ -111,10 +111,10 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
                     </Text>
                   </View>
                 </View>
-              );
+              )
             })}
           </>
-        );
+        )
       },
       text: () => {
         return (
@@ -135,25 +135,25 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
                     </Text>
                   </View>
                 </View>
-              );
+              )
             })}
           </>
-        );
-      },
-    };
+        )
+      }
+    }
 
-    return map[method] ? map[method]() : null;
-  };
+    return map[method] ? map[method]() : null
+  }
 
   return (
     <View className={prefixCls}>
-      {imageFillStyle === "nowrap" ? (
+      {imageFillStyle === 'nowrap' ? (
         <View
           className={classnames({
-            [`${prefixCls}__image-nav`]: showMethod === "imageText",
-            [`${prefixCls}__text-nav`]: showMethod === "text",
+            [`${prefixCls}__image-nav`]: showMethod === 'imageText',
+            [`${prefixCls}__text-nav`]: showMethod === 'text'
           })}
-          style={{ overflowX: "hidden", backgroundColor: backgroundColor }}
+          style={{ overflowX: 'hidden', backgroundColor: backgroundColor }}
         >
           {render(showMethod, width, height)}
         </View>
@@ -162,8 +162,8 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
           scrollX
           scrollY={false}
           className={classnames({
-            [`${prefixCls}__image-nav`]: showMethod === "imageText",
-            [`${prefixCls}__text-nav`]: showMethod === "text",
+            [`${prefixCls}__image-nav`]: showMethod === 'imageText',
+            [`${prefixCls}__text-nav`]: showMethod === 'text'
           })}
           style={{ backgroundColor: backgroundColor }}
         >
@@ -171,7 +171,7 @@ const ComImageTextNav: AppUIComponents<ComImageTextNavProps> = (props) => {
         </ScrollView>
       )}
     </View>
-  );
-};
-ComImageTextNav.cmpType='ImageTextNav'
-export default RegAppUIComponent(ComImageTextNav);
+  )
+}
+ComImageTextNav.cmpType = 'ImageTextNav'
+export default RegAppUIComponent(ComImageTextNav)

@@ -1,113 +1,112 @@
-import Taro from "@tarojs/taro";
+import Taro from '@tarojs/taro'
 import React, {
   useEffect,
   useState,
   ReactNode,
   useCallback,
-  useMemo,
-} from "react";
-import { imageUrl } from "@/utils/busUtils";
-import { Image, ViewProps, View, CommonEvent } from "@tarojs/components";
-import { pxTransform } from "@/utils/common";
-import classnames from "classnames";
-import loadingSvg from "./loading.svg";
-import errorSvg from "./error2.svg";
-import * as computed from "./wxs";
-import { FitType } from "./wxs";
-import "./index.scss";
+  useMemo
+} from 'react'
+import { imageUrl } from '@/utils/busUtils'
+import { Image, ViewProps, View, CommonEvent } from '@tarojs/components'
+import { pxTransform } from '@/utils/common'
+import classnames from 'classnames'
+import { errorImage, loadingImage } from './image'
+import * as computed from './wxs'
+import { FitType } from './wxs'
+import './index.scss'
 
 export type ImageFit =
-  | "contain"
-  | "cover"
-  | "fill"
-  | "widthFix"
-  | "heightFix"
-  | "none";
+  | 'contain'
+  | 'cover'
+  | 'fill'
+  | 'widthFix'
+  | 'heightFix'
+  | 'none'
 export interface ImageProps extends ViewProps {
   /**
    * @description 	图片链接
    */
-  src: string;
+  src: string
   /**
    * @description 是否圆角
    * @default false
    */
-  round?: boolean;
+  round?: boolean
   /**
    * @description 宽度，单位为px
    */
-  width?: number | string;
+  width?: number | string
   /**
    * @description 高度，单位为px
    */
-  height?: number | string;
+  height?: number | string
   /**
    * @description 圆角大小
    * @default 0
    */
-  radius?: number;
+  radius?: number
   /**
    * @description 是否懒加载
    * @default false
    */
-  lazyLoad?: boolean;
+  lazyLoad?: boolean
   /**
    * @description 是否开启长按图片显示识别小程序码菜单
    * @default false
    */
-  showMenuByLongpress?: boolean;
+  showMenuByLongpress?: boolean
   /**
    * @description 图片填充模式
    * @default fill
    */
-  fit?: ImageFit;
+  fit?: ImageFit
   /**
    * @description 是否展示图片加载失败提示
    * @default false
    */
-  showError?: boolean;
+  showError?: boolean
   /**
    * @description 是否使用 loading 状态
    * @default true
    */
-  showLoading?: boolean;
+  showLoading?: boolean
   /**
    * @description 渲染loading展示元素
    */
-  renderLoading?: ReactNode;
+  renderLoading?: ReactNode
   /**
    * @description 渲染错误描述展示元素
    */
-  renderError?: ReactNode;
+  renderError?: ReactNode
   /**
    * @description 样式
    */
-  className?: string;
+  className?: string
   /**
    * @description 图片样式
    */
-  imageClass?: string;
+  imageClass?: string
   /**
    * @description 样式
    */
-  style?: React.CSSProperties;
+  style?: React.CSSProperties
   /**
    * @description 是否是远程静态图片
    * @default false
    */
-  isStaticImage?: boolean;
+  isStaticImage?: boolean
   /**
    * @description 是否压缩
    * @default false
    */
-  isCompress?: boolean;
+  isCompress?: boolean
 
   /** 手指触摸后，超过350ms再离开，如果指定了事件回调函数并触发了这个事件，tap事件将不被触发 */
-  onLongPress?: (event: CommonEvent) => void;
+  onLongPress?: (event: CommonEvent) => void
   /** 原始图 */
-  sourceSrc?: string;
+  sourceSrc?: string
   /** 原始图组 */
-  images?: string[];
+  images?: string[]
 }
 /**
  * center: 裁剪模式，不缩放图片，只显示图片的中间区域
@@ -118,17 +117,17 @@ export interface ImageProps extends ViewProps {
  * heightFix: 缩放模式，高度不变，宽度自动变化，保持原图宽高比不变
  */
 export type TaroImageMode =
-  | "center"
-  | "scaleToFill"
-  | "aspectFill"
-  | "aspectFit"
-  | "widthFix"
-  | "heightFix";
+  | 'center'
+  | 'scaleToFill'
+  | 'aspectFill'
+  | 'aspectFit'
+  | 'widthFix'
+  | 'heightFix'
 
-const StaticImage: React.FC<ImageProps> = (props) => {
+const StaticImage: React.FC<ImageProps> = props => {
   const {
     src,
-    fit = "fill",
+    fit = 'fill',
     lazyLoad = true,
     onClick,
     showLoading = true,
@@ -138,104 +137,104 @@ const StaticImage: React.FC<ImageProps> = (props) => {
     height,
     radius,
     round,
-    className = "",
-    imageClass = "",
+    className = '',
+    imageClass = '',
     style,
     isStaticImage = false,
     isCompress = false,
     onLongPress,
     sourceSrc,
-    images = [],
-  } = props;
+    images = []
+  } = props
 
   const [customSrc, setCustomSrc] = useState<string>(() => {
-    return imageUrl(src, isStaticImage);
-  });
-  const [loading, setLoading] = useState<boolean>();
-  const [error, setError] = useState(false);
+    return imageUrl(src, isStaticImage)
+  })
+  const [loading, setLoading] = useState<boolean>()
+  const [error, setError] = useState(false)
 
-  const breviaryUrl = (url:string) => {
+  const breviaryUrl = (url: string) => {
     if (isStaticImage || !isCompress) {
-      return url;
+      return url
     }
-    var newUrl = url;
-    var pattern = /[^\.]\w*$/;
-    if (url && url.indexOf("_200x200") === -1) {
-      const name = newUrl.match(pattern);
-      if (name && name[0] !== "gif") {
-        newUrl = newUrl.replace("." + name[0], "_200x200." + name[0]);
+    var newUrl = url
+    var pattern = /[^\.]\w*$/
+    if (url && url.indexOf('_200x200') === -1) {
+      const name = newUrl.match(pattern)
+      if (name && name[0] !== 'gif') {
+        newUrl = newUrl.replace('.' + name[0], '_200x200.' + name[0])
       }
     }
-    return newUrl;
-  };
+    return newUrl
+  }
 
   const borderRadius = useMemo(() => {
-    return pxTransform(radius || 0);
-  }, [radius]);
+    return pxTransform(radius || 0)
+  }, [radius])
 
   const onLoad = useCallback(function () {
-    setLoading(false);
-  }, []);
+    setLoading(false)
+  }, [])
 
   const onError = useCallback(function () {
-    setError(true);
-  }, []);
+    setError(true)
+  }, [])
 
   useEffect(() => {
     if (src != null) {
-      setCustomSrc(imageUrl(src, isStaticImage));
+      setCustomSrc(imageUrl(src, isStaticImage))
     } else {
-      setCustomSrc("");
+      setCustomSrc('')
     }
-  }, [src, isStaticImage]);
+  }, [src, isStaticImage])
 
   useEffect(
     function () {
-      if (loading === undefined) setLoading(true);
-      setError(false);
+      if (loading === undefined) setLoading(true)
+      setError(false)
     },
     [loading]
-  );
+  )
 
   const styleH5 = useMemo(
     function () {
       let styles: React.CSSProperties = {
-        borderRadius: borderRadius,
-      };
-      if (process.env.TARO_ENV === "h5") {
-        if (fit === "heightFix" || fit === "widthFix") {
+        borderRadius: borderRadius
+      }
+      if (process.env.TARO_ENV === 'h5') {
+        if (fit === 'heightFix' || fit === 'widthFix') {
           styles = {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            borderRadius: borderRadius,
-          };
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: borderRadius
+          }
         }
       }
-      if (height && height !== "auto") {
-        styles.height = height + "px";
+      if (height && height !== 'auto') {
+        styles.height = height + 'px'
       }
-      return styles;
+      return styles
     },
     [fit, borderRadius, height]
-  );
+  )
 
   const sourceUrls = useMemo(() => {
-    return Array.isArray(images) ? images.map((it) => imageUrl(it)) : [];
-  }, [images]);
+    return Array.isArray(images) ? images.map(it => imageUrl(it)) : []
+  }, [images])
 
-  const handleClick = (e:any) => {
+  const handleClick = (e: any) => {
     if (sourceUrls.length > 0 || sourceSrc != null) {
       Taro.previewImage({
         urls:
-          sourceUrls.length === 0 ? [imageUrl(sourceSrc || "")] : sourceUrls,
+          sourceUrls.length === 0 ? [imageUrl(sourceSrc || '')] : sourceUrls,
         showmenu: true,
-        current: imageUrl(sourceSrc || ""),
-      });
+        current: imageUrl(sourceSrc || '')
+      })
     } else {
-      onClick?.(e);
+      onClick?.(e)
     }
-  };
+  }
 
   return (
     <View
@@ -243,16 +242,16 @@ const StaticImage: React.FC<ImageProps> = (props) => {
         computed.rootStyle({
           width,
           height,
-          borderRadius,
+          borderRadius
         }),
-        style,
+        style
       ])}
       className={
-        " " +
-        computed.bem("image", {
-          round,
+        ' ' +
+        computed.bem('image', {
+          round
         }) +
-        " " +
+        ' ' +
         className
       }
       onClick={handleClick}
@@ -260,9 +259,9 @@ const StaticImage: React.FC<ImageProps> = (props) => {
       {!error ? (
         <Image
           src={breviaryUrl(customSrc)}
-          mode={computed.mode(fit || ("none" as FitType)) as TaroImageMode}
+          mode={computed.mode(fit || ('none' as FitType)) as TaroImageMode}
           lazyLoad={lazyLoad}
-          className={classnames(imageClass, "van-image__img", className)}
+          className={classnames(imageClass, 'van-image__img', className)}
           showMenuByLongpress={showMenuByLongpress}
           onLoad={onLoad}
           onLongPress={onLongPress}
@@ -273,27 +272,27 @@ const StaticImage: React.FC<ImageProps> = (props) => {
 
       {loading && showLoading && (
         <View
-          className="van-loading-class van-image__loading"
+          className='van-loading-class van-image__loading'
           style={{ borderRadius: borderRadius }}
         >
-          <View className="sc-image-loading">
-            <Image src={loadingSvg} className="sc-loading-img" />
+          <View className='sc-image-loading'>
+            <Image src={loadingImage} className='sc-loading-img' />
           </View>
         </View>
       )}
 
       {error && showError ? (
         <View
-          className="error-class van-image__error"
+          className='error-class van-image__error'
           style={{ borderRadius: borderRadius }}
         >
-          <View className="sc-image-loading">
-            <Image src={errorSvg} className="sc-loading-img" />
+          <View className='sc-image-loading'>
+            <Image src={errorImage} className='sc-loading-img' />
           </View>
         </View>
       ) : null}
     </View>
-  );
-};
+  )
+}
 
-export default StaticImage;
+export default StaticImage
