@@ -36,7 +36,10 @@ const ComVerticalGoodsItem: React.FC<
     showUnitPrice = false,
     validReasonLocation = 'center',
     buyBtn = true,
-    buyBtnExpress = {},
+    buyBtnExpress = {
+      btnType: 'fill',
+      btnShape: 'circle'
+    },
     showCornerMark = 'none',
     goods,
     prefixCls,

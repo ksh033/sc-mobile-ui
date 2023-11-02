@@ -39,7 +39,7 @@ const ComHorizontalGoodsItem: React.FC<
     showUnitPrice = false,
     showImageMark = false,
     buyBtnExpress = {
-      btnType: 'default',
+      btnType: 'fill',
       btnShape: 'circle'
     },
     showCornerMark = 'none',

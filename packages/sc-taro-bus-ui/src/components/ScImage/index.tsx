@@ -177,6 +177,7 @@ const StaticImage: React.FC<ImageProps> = props => {
   }, [])
 
   const onError = useCallback(function () {
+    setLoading(false)
     setError(true)
   }, [])
 
@@ -260,7 +261,7 @@ const StaticImage: React.FC<ImageProps> = props => {
     >
       {!error ? (
         <Image
-          src={breviaryUrl(customSrc)}
+          src={customSrc}
           mode={computed.mode(fit || ('none' as FitType)) as TaroImageMode}
           lazyLoad={lazyLoad}
           className={classnames(imageClass, 'van-image__img', className)}

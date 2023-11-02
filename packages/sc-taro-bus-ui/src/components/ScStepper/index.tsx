@@ -10,8 +10,7 @@ export const prefixCls = 'com-stepper'
 
 const ScStepper: React.FC<ScStepperProps> = props => {
   const {
-    initBtnType = 'default',
-    showInitBtn = false,
+    btnType = 'fill',
     btnShape = 'circle',
     value = 0,
     className,
@@ -28,9 +27,10 @@ const ScStepper: React.FC<ScStepperProps> = props => {
     hideMinusBtn = false,
     zeroHideMinusBtn = true
   } = props
+
   const hasInitBtn = useMemo(() => {
-    return showInitBtn && value === 0
-  }, [value, showInitBtn])
+    return value === 0 && btnType !== 'none'
+  }, [value, btnType])
 
   const customMinusClick = (event: ITouchEvent) => {
     event.preventDefault()
@@ -50,6 +50,8 @@ const ScStepper: React.FC<ScStepperProps> = props => {
       onValueChange?.(value + 1)
     }
   }
+
+  console.log('hasInitBtn', hasInitBtn, props)
   return (
     <View
       className={classnames(`${prefixCls}`, className)}
@@ -58,7 +60,7 @@ const ScStepper: React.FC<ScStepperProps> = props => {
     >
       {hasInitBtn ? (
         <InitBtn
-          initBtnType={initBtnType}
+          btnType={btnType}
           btnText={props.btnText}
           size={size}
           initBtnClick={initBtnClick || customPlusClick}
@@ -79,6 +81,4 @@ const ScStepper: React.FC<ScStepperProps> = props => {
   )
 }
 
-export default React.memo(ScStepper, (preProps, nextProps) => {
-  return preProps.value === nextProps.value
-})
+export default React.memo(ScStepper)

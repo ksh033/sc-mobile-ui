@@ -1,87 +1,96 @@
-import { ITouchEvent } from '@tarojs/components';
-import zero = require('./../../hooks/useSignCanvas/layout/zero');
-import { SIZE } from '../types/contants';
+import { ITouchEvent } from '@tarojs/components'
+import zero = require('./../../hooks/useSignCanvas/layout/zero')
+import { SIZE } from '../types/contants'
 
 /** circle-arrow 园箭头  buy-now: 立即抢*/
-export type ButtonInitType = 'circle-arrow' | 'buy-now' | 'default' | 'square';
+export type ButtonInitType =
+  | 'cart1'
+  | 'cart2'
+  | 'hollow'
+  | 'fill'
+  | 'circle-fill'
+  | 'square-fill'
+  | 'circle-hollow'
+  | 'square-hollow'
+  | 'none'
 
 export type BtnType = {
   /**
    * 初始化按钮类型
-   *  @default 'default'
+   *  @default 'fill'
    */
-  initBtnType?: ButtonInitType;
+  btnType?: ButtonInitType
   /** 是否显示初始化的按钮 */
-  showInitBtn?: boolean;
+  showInitBtn?: boolean
   /** 按钮形状 */
-  btnShape?: StepperType;
+  btnShape?: StepperType
   /** 按钮初始化文本 */
-  btnText?: string;
+  btnText?: string
   /** 初始化按钮事件 */
-  initBtnClick?: (event: ITouchEvent) => void;
-};
+  initBtnClick?: (event: ITouchEvent) => void
+}
 
-export type StepperType = 'circle' | 'border';
+export type StepperType = 'circle' | 'border'
 
 export type ScStepperInitBtnProps = BtnType & {
   /**整体的大小 */
-  size?: SIZE;
-};
+  size?: SIZE
+}
 
 export type ScBaseStepperProps = {
   /**
    * 唯一键值
    * @description 为了从内存购物车中取数据
    */
-  rowKey?: string;
+  rowKey?: string
   /**
    *  值
    *  @default 0
    */
-  value?: number;
+  value?: number
   /**
    * 最小值
    * @default 0
    */
-  min?: number;
+  min?: number
   /**
    * 最小值
    * @default 9999
    */
-  max?: number;
+  max?: number
   /**后端需要的额外参数 */
-  params?: any;
+  params?: any
   /**整体的大小 */
-  size?: SIZE;
+  size?: SIZE
   /**样式 */
-  className?: string;
+  className?: string
   /** 是否禁用 */
-  disabled?: boolean;
+  disabled?: boolean
   /**
    * 减法事件
    */
-  minusClick?: (event: ITouchEvent) => void;
+  minusClick?: (event: ITouchEvent) => void
   /**
    * 加分事件
    */
-  plusClick?: (event: ITouchEvent) => void;
+  plusClick?: (event: ITouchEvent) => void
   /**
    * 数量 0 时是否隐藏减的按钮
    * @default true
    */
-  zeroHideMinusBtn?: boolean;
+  zeroHideMinusBtn?: boolean
   /** 是否隐藏减的按钮
    *  @default false
    */
-  hideMinusBtn?: boolean;
-};
+  hideMinusBtn?: boolean
+}
 
 export type ScStepperWarpProps = ScBaseStepperProps & {
   /**
    * 累加器的样式
    */
-  stepperType?: StepperType;
-};
+  stepperType?: StepperType
+}
 
 export type ScStepperProps = ScBaseStepperProps &
   BtnType & {
@@ -89,6 +98,6 @@ export type ScStepperProps = ScBaseStepperProps &
      * 价格变化
      * @returns
      */
-    onValueChange?: (newValue: number) => void;
-    style?: React.CSSProperties;
-  };
+    onValueChange?: (newValue: number) => void
+    style?: React.CSSProperties
+  }

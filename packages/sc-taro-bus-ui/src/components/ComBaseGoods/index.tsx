@@ -50,7 +50,7 @@ class ComBaseGoods extends React.Component<
     // console.log("endTIme", new Date().getTime());
     const {
       layout = 'horizontal',
-      buyBtnExpress = { btnType: 'home', btnShape: 'circle' },
+      buyBtnExpress = { btnType: 'fill', btnShape: 'circle' },
       goods,
       openSceneCart,
       ...resprops

@@ -1,120 +1,22 @@
-@import "@/style/index.scss"; // 引入基础配置
+@import '@/style/index.scss'; // 引入基础配置
 
-$stepper-initbtn-prefix: "com-stepper-initbtn";
+$stepper-initbtn-prefix: 'com-stepper-initbtn';
 
-.#{$stepper-initbtn-prefix}-detail {
-  width: 80px;
-  height: 27px;
-  background-color: $sc-dominant-color;
-  // background: linear-gradient(227deg, #ffa500, #ff8e11);
-  border-radius: 15px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  line-height: 27px;
-
-  &__image {
-    width: 14px;
-    height: 14px;
-    margin-right: 3px;
-  }
-
-  &__text {
-    @extend %font-white_text;
-    text-align: center;
-    font-size: 14px;
-  }
-}
-.#{$stepper-initbtn-prefix}-detail-samll {
-  width: 57px;
-  height: 19px;
-
-  .#{$stepper-initbtn-prefix}-detail__image {
-    width: 11px;
-    height: 11px;
-  }
-
-  .#{$stepper-initbtn-prefix}-detail__text {
-    font-size: 12px;
-  }
-}
-
-.#{$stepper-initbtn-prefix}-home {
+.#{$stepper-initbtn-prefix}-fill {
   position: relative;
-  width: 22px;
-  height: 22px;
-  border-radius: 11px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  &__image {
-    width: 22px;
-    height: 22px;
-  }
-}
-
-.#{$stepper-initbtn-prefix}-home-samll {
-  width: 15px;
-  height: 15px;
-  border-radius: 7px;
-
-  .#{$stepper-initbtn-prefix}-home__image {
-    width: 15px;
-    height: 15px;
-  }
-}
-
-.#{$stepper-initbtn-prefix}-discount {
-  position: relative;
-  width: 47px;
-  height: 22px;
-  background-color: #ff3346;
-  // background: linear-gradient(-227deg, #ff3346, #fc5930);
-  border-radius: 11px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 22px;
-
-  &__text {
-    @extend %font-white_medium_text;
-    text-align: center;
-    font-size: 11px;
-  }
-}
-
-.#{$stepper-initbtn-prefix}-discount-samll {
-  width: 35px;
-  height: 16px;
-  border-radius: 7px;
-  line-height: 16px;
-
-  .#{$stepper-initbtn-prefix}-discount__text {
-    font-size: 9px;
-  }
-}
-
-.#{$stepper-initbtn-prefix}-square {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
   background-color: $sc-dominant-color;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
-  line-height: 22px;
+  line-height: 20px;
 }
 
-.#{$stepper-initbtn-prefix}-square::before {
+.#{$stepper-initbtn-prefix}-fill::before {
   position: absolute;
   top: -10px;
   right: -5px;
@@ -122,13 +24,13 @@ $stepper-initbtn-prefix: "com-stepper-initbtn";
   left: -5px;
   margin: auto;
   background-color: $sc-color-bg-light;
-  content: "";
-  width: 15px;
+  content: '';
+  width: 12px;
   height: 2px;
   border-radius: 1px;
 }
 
-.#{$stepper-initbtn-prefix}-square::after {
+.#{$stepper-initbtn-prefix}-fill::after {
   position: absolute;
   top: -5px;
   right: -10px;
@@ -136,14 +38,148 @@ $stepper-initbtn-prefix: "com-stepper-initbtn";
   left: -10px;
   margin: auto;
   background-color: $sc-color-bg-light;
-  content: "";
+  content: '';
   width: 2px;
-  height: 15px;
+  height: 12px;
   border-radius: 1px;
 }
 
-.#{$stepper-initbtn-prefix}-square-samll {
+.#{$stepper-initbtn-prefix}-fill-samll {
   width: 15px;
   height: 15px;
   border-radius: 15px;
+}
+
+.#{$stepper-initbtn-prefix}-cart1 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.#{$stepper-initbtn-prefix}-cart2 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.#{$stepper-initbtn-prefix}-hollow {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  @include border-thin($color: $sc-dominant-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 20px;
+}
+
+.#{$stepper-initbtn-prefix}-hollow::before {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  bottom: -10px;
+  left: -5px;
+  margin: auto;
+  background-color: $sc-dominant-color;
+  content: '';
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.#{$stepper-initbtn-prefix}-hollow::after {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  bottom: -5px;
+  left: -10px;
+  margin: auto;
+  background-color: $sc-dominant-color;
+  content: '';
+  width: 2px;
+  height: 12px;
+  border-radius: 1px;
+}
+
+.#{$stepper-initbtn-prefix}-hollow-samll {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+}
+
+.#{$stepper-initbtn-prefix}-circle-fill {
+  position: relative;
+  height: 24px;
+  padding: 0 8px;
+  line-height: 24px;
+  border-radius: 12px;
+  background-color: $sc-dominant-color;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$stepper-initbtn-prefix}-circle-fill__text {
+  @extend %font-white_text;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.#{$stepper-initbtn-prefix}-square-fill {
+  position: relative;
+  height: 24px;
+  padding: 0 8px;
+  line-height: 24px;
+  background-color: $sc-dominant-color;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.#{$stepper-initbtn-prefix}-square-fill__text {
+  @extend %font-white_text;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.#{$stepper-initbtn-prefix}-circle-hollow {
+  position: relative;
+  height: 24px;
+  padding: 0 8px;
+  line-height: 24px;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include border-thin($color: $sc-dominant-color);
+}
+
+.#{$stepper-initbtn-prefix}-circle-hollow__text {
+  @extend %font-dominant_text;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.#{$stepper-initbtn-prefix}-square-hollow {
+  position: relative;
+  height: 24px;
+  padding: 0 8px;
+  line-height: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include border-thin($color: $sc-dominant-color);
+}
+
+.#{$stepper-initbtn-prefix}-square-hollow__text {
+  @extend %font-dominant_text;
+  line-height: 24px;
+  font-size: 12px;
 }
