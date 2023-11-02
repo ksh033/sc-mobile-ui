@@ -5,6 +5,7 @@ import { Text } from "@tarojs/components";
 import Taro from "@tarojs/taro";
 import { ScIconProps } from "./types";
 import { mergeStyle } from "../utils/styles";
+import './icon.scss'
 
 export default class ScIcon extends React.Component<ScIconProps> {
   public static propTypes: InferProps<ScIconProps>;
