@@ -36,8 +36,7 @@ const InitBtn: React.FC<ScStepperInitBtnProps> = props => {
     return (
       <View
         className={classnames({
-          [`${stepper_initbtn_prefix}-detail`]: true,
-          [`${stepper_initbtn_prefix}-detail-samll`]: size === 'small'
+          [`${stepper_initbtn_prefix}-cart2`]: true
         })}
         onClick={handleClick}
       >

@@ -54,12 +54,18 @@ $stepper-initbtn-prefix: 'com-stepper-initbtn';
   position: relative;
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .#{$stepper-initbtn-prefix}-cart2 {
   position: relative;
   width: 24px;
   height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .#{$stepper-initbtn-prefix}-hollow {
