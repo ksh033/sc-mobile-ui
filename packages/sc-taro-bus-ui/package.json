@@ -37,7 +37,7 @@
   "dependencies": {
     "@nutui/icons-react-taro": "^0.0.1",
     "@sc-mobile/sc-taro-ui": "workspace:1.0.0-beta.1",
-
+    "@sceditor/core": "0.0.1",
     "lodash.isequal": "^4.5.0",
     "querystring": "^0.2.1"
   },

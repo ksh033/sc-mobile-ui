@@ -16,10 +16,10 @@
   },
   "dependencies": {
     "@nutui/icons-react-taro": "0.0.1",
-
     "classnames": "^2.3.2"
   },
   "devDependencies": {
+    "@sceditor/core": "0.0.1",
     "@tarojs/components": "3.6.16",
     "@tarojs/plugin-framework-react": "3.6.16",
     "@tarojs/plugin-platform-alipay": "3.6.16",
@@ -45,7 +45,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-
   "files": [
     "dist",
     "README.md",
