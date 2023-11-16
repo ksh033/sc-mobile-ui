@@ -1,0 +1,68 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+.sc-checkbox {
+  position: relative;
+  background-color: $sc-color-bg-light;
+  transition: background-color 0.3s;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sc-checkbox__option-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  .sc-checkbox__icon-cnt {
+    margin-top: 0;
+    min-width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    width: 24px;
+    height: 24px;
+    color: transparent;
+    font-size: 24;
+    line-height: 1;
+    border-radius: 12px;
+    background-color: $sc-color-bg-light;
+    box-sizing: border-box;
+    transition: all 0.2s;
+    @include border-thin($color: $sc-dominant-color);
+  }
+}
+
+.sc-checkbox__option--selected .sc-checkbox__icon-cnt {
+  color: $sc-color-text-base-inverse;
+  border: none;
+  background-color: $sc-dominant-color;
+}
+
+.sc-checkbox__option--disabled {
+  cursor: not-allowed;
+}
+
+.sc-checkbox__option--disabled .sc-checkbox__icon-cnt {
+  color: $sc-color-text-base-inverse;
+  border: none;
+  background-color: $sc-color-disabled;
+  border-color: $sc-color-disabled;
+}
+.sc-checkbox__option--noselected--disabled {
+  cursor: not-allowed;
+}
+
+.sc-checkbox__option--noselected--disabled .sc-checkbox__icon-cnt {
+  border-color: $sc-color-disabled;
+}
+
+.sc-checkbox__title {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.5;
+  justify-content: center;
+}

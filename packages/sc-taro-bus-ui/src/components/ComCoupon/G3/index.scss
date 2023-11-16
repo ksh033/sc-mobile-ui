@@ -1,0 +1,21 @@
+$com-coupon-group-prefix: 'com-coupon-group';
+
+.#{$com-coupon-group-prefix}-g3 {
+  position: relative;
+  overflow: hidden;
+
+  &-content {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &-item {
+    position: relative;
+    width: 33.33%;
+    float: left;
+
+    &-content {
+      position: relative;
+    }
+  }
+}

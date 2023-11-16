@@ -1,0 +1,415 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+$coupons-item-class-prefix: 'com-coupons-item';
+
+$coupons-item-background-color: tint($sc-dominant-color, 90%);
+$coupons-item-noactive-text-color: tint($sc-dominant-color, 50%);
+
+.#{$coupons-item-class-prefix} {
+  position: relative;
+  margin-bottom: 12px;
+  background: $sc-color-bg-light;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  // box-shadow: 0px 4px 30px 0px rgba($extra, 0.19);
+
+  &-outime {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $coupons-item-noactive-text-color;
+    border-radius: 5px 0 5px 0;
+    padding: 3px 6px;
+
+    &__text {
+      @extend %font-dominant_text;
+      font-size: 10px;
+    }
+  }
+
+  &-content {
+    position: relative;
+    height: 98px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-left {
+      position: relative;
+      width: 105px;
+      height: 100%;
+      text-align: center;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: $coupons-item-background-color;
+      border-radius: 5px 0px 0px 5px;
+      line-height: 1;
+
+      .price {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+      }
+
+      .price-num {
+        @extend %font-dominant_medium_text;
+        position: relative;
+        font-size: 32px;
+      }
+
+      .price-num-code {
+        font-size: 16px;
+        @extend %font-dominant_medium_text;
+      }
+
+      .price-message {
+        position: relative;
+        margin-top: 10px;
+
+        &__text {
+          @extend %font-dominant_text;
+          font-size: 12px;
+        }
+      }
+    }
+
+    &-right {
+      flex: 1;
+      text-align: left;
+      position: relative;
+      padding: 10px 8px 10px 14px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 0 10px 0 0px;
+      line-height: 1;
+
+      .item-title {
+        position: relative;
+        font-size: 15px;
+        line-height: 1.4;
+
+        &__text {
+          @extend %font-black_medium_text;
+          font-size: 15px;
+        }
+      }
+
+      .item-time {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        margin-top: 8px;
+
+        &__text {
+          @extend %font-gray_text;
+          font-size: 11px;
+        }
+      }
+
+      .item-reason {
+        position: relative;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &__text {
+          @extend %font-extra_text;
+          font-size: 11px;
+          margin-left: 4px;
+        }
+      }
+
+      .item-btns {
+        position: relative;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        line-height: 1;
+      }
+
+      .item-direction {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        &__text {
+          @extend %font-gray_text;
+          font-size: 12px;
+          margin-right: 6px;
+        }
+      }
+    }
+
+    &-check {
+      position: relative;
+      height: 100%;
+      display: flex;
+      padding-right: 12px;
+      align-items: center;
+      background-color: $sc-color-bg-light;
+      border-radius: 0 5px 5px 0;
+    }
+
+    &-usedbtn {
+      position: relative;
+      height: 100%;
+      width: 32px;
+      border-radius: 0 5px 5px 0;
+      writing-mode: vertical-lr;
+      letter-spacing: 5px;
+      /* 文本间距问题 */
+      padding-top: 4px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-width: 0;
+      @include border-thin-left(
+        $color: $sc-color-border-divide,
+        $style: dashed,
+        $width: 1px
+      );
+
+      &__text {
+        @extend %font-dominant_text;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &-top-semicircle {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background-color: $sc-color-bg;
+    top: 0;
+    left: 100px;
+    z-index: 2;
+    border-radius: 0 0 5px 5px;
+  }
+
+  &-bottom-semicircle {
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    background-color: $sc-color-bg;
+    bottom: 0;
+    left: 100px;
+    z-index: 2;
+    border-radius: 5px 5px 0 0;
+  }
+
+  &-share {
+    position: relative;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 0 6px;
+    background: $sc-color-bg-light;
+    @include border-thin($color: $sc-dominant-color);
+
+    &__text {
+      font-size: 12px;
+      @extend %font-dominant_text;
+      margin-left: 5px;
+    }
+  }
+
+  &-extra {
+    z-index: 10;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    background: $sc-color-bg-light;
+    border-radius: 0 0 5px 5px;
+
+    &-content {
+      position: relative;
+      padding: 12px 25px 15px 15px;
+
+      &__text {
+        font-size: 12px;
+        line-height: 20px;
+        @extend %font-extra_text;
+      }
+    }
+  }
+}
+/* 中等尺寸 */
+.#{$coupons-item-class-prefix}-middle {
+  position: relative;
+  .#{$coupons-item-class-prefix} {
+    &-outime__text {
+      font-size: 9%;
+    }
+
+    &-top-semicircle {
+      left: 91px;
+    }
+
+    &-bottom-semicircle {
+      left: 91px;
+    }
+
+    &-content {
+      height: 85px;
+
+      &-left {
+        width: 96px;
+
+        .price-num {
+          font-size: 30px;
+        }
+
+        .price-num-code {
+          font-size: 14px;
+        }
+
+        .price-message__text {
+          font-size: 10px;
+        }
+      }
+
+      &-right {
+        .item-title__text {
+          font-size: 14px;
+        }
+
+        .item-time__text {
+          font-size: 10px;
+        }
+
+        .item-direction__text {
+          font-size: 10px;
+        }
+      }
+
+      &-usedbtn {
+        width: 28px;
+        &__text {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* 小尺寸 */
+.#{$coupons-item-class-prefix}-small {
+  position: relative;
+  .#{$coupons-item-class-prefix} {
+    &-outime__text {
+      font-size: 9px;
+    }
+
+    &-top-semicircle {
+      left: 68px;
+    }
+
+    &-bottom-semicircle {
+      left: 68px;
+    }
+
+    &-content {
+      height: 79px;
+
+      &-left {
+        width: 70px;
+
+        .price-num {
+          font-size: 28px;
+        }
+
+        .price-num-code {
+          font-size: 14px;
+        }
+
+        .price-message__text {
+          font-size: 10px;
+        }
+      }
+
+      &-right {
+        .item-title__text {
+          font-size: 12px;
+        }
+
+        .item-time__text {
+          font-size: 8px;
+        }
+
+        .item-direction__text {
+          font-size: 8px;
+        }
+      }
+
+      &-usedbtn {
+        width: 28px;
+        &__text {
+          font-size: 8px;
+        }
+      }
+    }
+  }
+}
+
+.#{$coupons-item-class-prefix}-noactived {
+  position: relative;
+  .#{$coupons-item-class-prefix}-content-left {
+    .price-num {
+      color: $coupons-item-noactive-text-color;
+    }
+
+    .price-num-code {
+      color: $coupons-item-noactive-text-color;
+    }
+
+    .price-message__text {
+      color: $coupons-item-noactive-text-color;
+    }
+  }
+
+  .item-title__text {
+    color: $sc-color-gray-text;
+  }
+}
+
+.#{$coupons-item-class-prefix}-disabled {
+  position: relative;
+  .#{$coupons-item-class-prefix}-content-left {
+    background-color: tint($sc-color-bg-gray, 80%);
+
+    .price-num {
+      color: $sc-color-gray-text;
+    }
+
+    .price-num-code {
+      color: $sc-color-gray-text;
+    }
+
+    .price-message__text {
+      color: $sc-color-gray-text;
+    }
+  }
+
+  .item-title__text {
+    color: $sc-color-gray-text;
+  }
+
+  .#{$coupons-item-class-prefix}-content-usedbtn__text {
+    color: $sc-color-gray-text;
+  }
+}

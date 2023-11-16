@@ -1,0 +1,17 @@
+$com-coupon-group-prefix: 'com-coupon-group';
+
+.#{$com-coupon-group-prefix}-g1 {
+  position: relative;
+  display: flex;
+
+  &-content {
+    position: relative;
+    width: 100%;
+  }
+
+  &-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
