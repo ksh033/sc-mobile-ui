@@ -1,0 +1,121 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+$swiper-prefix: 'sc-swiper';
+
+.#{$swiper-prefix} {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: $sc-color-bg-light;
+
+  &-view {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  &-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &-banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    &-video {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &-curtaion {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &-playbtn {
+        width: 64px;
+        height: 64px;
+        @include border-thin($color: $sc-color-border-white, $width: 2px);
+        border-radius: 32px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &-progress {
+      position: absolute;
+      right: 0;
+      z-index: 20;
+      bottom: 10px;
+      left: 0;
+      display: flex;
+      flex-direction: row;
+      padding-left: 12px;
+      padding-right: 12px;
+      justify-content: space-between;
+      align-items: center;
+
+      &-play {
+        width: 22px;
+        height: 22px;
+        background: rgba($color: $sc-color-bg-black, $alpha: 0.5);
+        border-radius: 11px;
+        text-align: center;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &-time {
+        @extend %font-white_medium_text;
+        font-size: 10px;
+      }
+
+      &-line {
+        width: 207px;
+      }
+
+      &-muted {
+        width: 22px;
+        height: 22px;
+        background: rgba($color: $sc-color-bg-black, $alpha: 0.5);
+        border-radius: 11px;
+        text-align: center;
+        line-height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  &-steps {
+    position: absolute;
+    width: 32px;
+    height: 22px;
+    background: rgba(22, 22, 22, 0.7);
+    border-radius: 12px;
+    bottom: 10px;
+    right: 15px;
+    line-height: 22px;
+    text-align: center;
+
+    &__text {
+      font-size: 11px;
+      @extend %font-white_medium_text;
+    }
+  }
+}

@@ -12,7 +12,8 @@ export {
   GoodsLayout,
   CrowdImage,
   ConfigProvider,
-  Coupon
+  Coupon,
+  GoodsGroup
 } from './components'
 
 console.log('sc-taro-bus-ui')

@@ -1,0 +1,242 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+$component: '.sc-tabs';
+/* Tabs */
+$sc-tabs-pane-min-height: 50px;
+$sc-tabs-color: $sc-color-text-base !default;
+$sc-tabs-color-active: $sc-dominant-color !default;
+$sc-tabs-font-size: 14px !default;
+$sc-tabs-line-height: 1px !default;
+$sc-tabs-underline-color: $sc-color-border-divide !default;
+$sc-tabs-bg-color: $sc-color-bg-light !default;
+
+#{$component} {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+
+  /* elements */
+  &__item {
+    position: relative;
+    flex: 1;
+    padding: 12px;
+    color: $sc-color-text-base;
+    font-size: $sc-tabs-font-size;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    &-underline {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: $sc-tabs-line-height;
+      background-color: $sc-tabs-color-active;
+      transform: scaleX(0);
+      transition: all 0.15s;
+    }
+
+    &--active {
+      color: $sc-tabs-color-active;
+
+      #{$component}__item-underline {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: -moz-scrollbars-none;
+    background-color: transparent;
+
+    &--horizontal {
+      flex-direction: row;
+    }
+
+    &--vertical {
+      flex-direction: column;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+      background: transparent;
+    }
+  }
+
+  &__body {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    transition: all 0.3s;
+    will-change: transform, left, top;
+    overflow: visible;
+  }
+
+  &__underline {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    right: auto;
+    width: 600%;
+    height: $sc-tabs-line-height;
+    background-color: $sc-tabs-underline-color;
+  }
+
+  /* modifiers */
+  &--scroll {
+    #{$component}__header {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+    }
+
+    #{$component}__item {
+      display: inline-block;
+      overflow: visible;
+    }
+  }
+
+  &--vertical {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+
+    #{$component}__body {
+      display: inline-block;
+      flex: 1;
+      height: $sc-tabs-pane-min-height;
+      width: auto;
+    }
+
+    #{$component}__underline {
+      top: 0;
+      left: 0;
+      bottom: auto;
+      width: 1px;
+      height: 100%;
+    }
+
+    #{$component}__header {
+      display: inline-block;
+      width: auto;
+    }
+
+    #{$component}__item {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      align-items: center;
+
+      &-underline {
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        width: $sc-tabs-line-height;
+        height: 100%;
+        transform: scaleY(0);
+      }
+
+      &--active {
+        #{$component}__item-underline {
+          transform: scaleY(1);
+        }
+      }
+    }
+  }
+}
+
+/* hack SWAN */
+
+#{$component}--scroll#{$component}--horizontal#{$component}--SWAN {
+  #{$component}__item-underline {
+    bottom: $sc-tabs-line-height;
+  }
+}
+
+/* hack SWAN */
+
+.sc-tabs-pane {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: initial;
+  vertical-align: top;
+
+  /* modifiers */
+  &--active {
+    height: auto;
+  }
+
+  &--inactive {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &--vertical {
+    display: block;
+    height: 100%;
+    overflow: scroll;
+  }
+}
+
+.sc-tabs__header-view {
+  position: relative;
+}
+
+.sc-tabs__item-subTitle {
+  margin-top: 10px;
+  height: 16px;
+  line-height: 16px;
+  padding: 0 6px;
+  @extend %font-extra_text;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 75px;
+}
+
+.sc-tabs__item-title {
+  line-height: 1;
+  @extend %font-black_text;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 75px;
+}
+
+.sc-tabs__item--active .sc-tabs__item-title {
+  color: $sc-tabs-color-active;
+}
+
+.sc-tabs__item--active .sc-tabs__item-subTitle {
+  background: $sc-dominant-color;
+  border-radius: 8px;
+  color: $sc-color-text-base-inverse;
+}
+
+.sc-tabs__item-image {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0;
+  margin-bottom: 5px;
+}

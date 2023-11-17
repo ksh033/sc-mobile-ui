@@ -1,0 +1,47 @@
+.load-more {
+  min-height: 40px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  clear: both;
+  position: relative;
+}
+
+.load-more .t-class-loading {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more .t-class-loading-text {
+  color: #a4a4a4;
+}
+
+.sc-nomore-content {
+  height: 40px;
+  font-size: 13px;
+  clear: both;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #a4a4a4;
+}
+
+.load-more .t-class-indicator {
+  color: #a4a4a4;
+}
+
+.sc-nomore-loading {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  &__text {
+    margin-left: 6px;
+    font-size: 12px;
+    color: #999;
+  }
+}

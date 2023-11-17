@@ -1,0 +1,72 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+$com-goods-group-prefix: 'com-goods-group';
+
+.#{$com-goods-group-prefix} {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.#{$com-goods-group-prefix}-classify {
+  position: relative;
+  height: 100%;
+  width: 76px;
+  background: $sc-color-bg;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+
+  &-scroll {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &-item {
+    position: relative;
+    width: 76px;
+    height: 60px;
+    background: $sc-color-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-active {
+      background-color: $sc-color-bg-light;
+    }
+
+    &-name {
+      position: relative;
+      width: 76px;
+      height: 20px;
+      padding-left: 12px;
+
+      &-active {
+        @include border-thin-left($color: $sc-dominant-color, $width: 2px);
+      }
+
+      &-activeleft {
+        margin-left: -3px;
+      }
+
+      &__text {
+        @extend %font-black_medium_text;
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+.#{$com-goods-group-prefix}-refresher {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}

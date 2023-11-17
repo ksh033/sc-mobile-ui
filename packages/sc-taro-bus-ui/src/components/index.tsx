@@ -12,6 +12,7 @@ import GoodsLayout from './ComGoodsLayout'
 import CrowdImage from './ComCrowdImage'
 import ConfigProvider from './ConfigProvider'
 import Coupon from './ComCoupon'
+import GoodsGroup from './ComGoodsGroup'
 
 export {
   Title,
@@ -27,5 +28,6 @@ export {
   GoodsLayout,
   ConfigProvider,
   CrowdImage,
-  Coupon
+  Coupon,
+  GoodsGroup
 }

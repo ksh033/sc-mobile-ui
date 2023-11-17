@@ -1,0 +1,16 @@
+.sc-loading {
+  position: relative;
+  width: 18px;
+  height: 18px;
+
+  &__ring {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #6190e8 transparent transparent transparent;
+    border-radius: 9px;
+  }
+}
