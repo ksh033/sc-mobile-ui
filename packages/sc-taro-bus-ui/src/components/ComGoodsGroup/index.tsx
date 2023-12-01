@@ -1,27 +1,23 @@
-import { ScrollView, View, Text } from '@tarojs/components'
-import ScPullDownRefresh from '../ScPullDownRefresh'
-import ComGoodsLayout from '../ComGoodsLayout'
-import { useRef } from 'react'
+import { View } from '@tarojs/components'
 import { RegAppUIComponent, type AppUIComponents } from '@sceditor/core'
 import { Goods } from '../types/goods'
-import classnames from 'classnames'
 import { useSetState } from '@/hooks'
 import { ComGoodsGroupProps, ComGoodsGroupState } from './type'
+import LeftNav from './LeftNav'
+import TopNav from './TopNav'
 
 const classPrefix = 'com-goods-group'
 /** 商品组 */
-const ComGoodsGroup: AppUIComponents<ComGoodsGroupProps> = () => {
+const ComGoodsGroup: AppUIComponents<ComGoodsGroupProps> = props => {
+  const { showMethod = 'TOP_NAV', list, ...resProps } = props
+
   const [state, setState] = useSetState<ComGoodsGroupState>({
-    list: [],
+    list: list,
     catalogList: []
   })
 
-  /** ref */
-  // 下拉刷新组件的ref为了调用内置方法
-  const ref = useRef<ScPullDownRefresh | null>(null)
-
   /** 分类切换 */
-  const onClassifyChange = async (classifyId: string, index: number) => {}
+  const onClassifyChange = (classifyId: string, index: number) => {}
 
   /** 数据返回 */
   const onListChange = (records: Goods[]) => {
@@ -31,71 +27,25 @@ const ComGoodsGroup: AppUIComponents<ComGoodsGroupProps> = () => {
   }
   return (
     <View className={`${classPrefix}`}>
-      <View className={`${classPrefix}-classify`}>
-        <ScrollView
-          id='nav-left'
-          className={`${classPrefix}-classify-scroll`}
-          scrollY
-        >
-          {state.catalogList?.map((item, index: number) => {
-            return (
-              <View
-                key={item.classifyId}
-                className={classnames({
-                  [`${classPrefix}-classify-item`]: true,
-                  [`${classPrefix}-classify-item-active`]:
-                    state.classifyId === item?.classifyId
-                })}
-                onClick={() => {
-                  if (item.classifyId) {
-                    onClassifyChange?.(item.classifyId, index)
-                  }
-                }}
-              >
-                <View
-                  className={classnames({
-                    [`${classPrefix}-classify-item-name`]: true,
-                    [`${classPrefix}-classify-item-name-active`]:
-                      state.classifyId === item?.classifyId
-                  })}
-                >
-                  <Text
-                    className={classnames({
-                      [`${classPrefix}-classify-item-name__text`]: true,
-                      [`${classPrefix}-classify-item-name-activeleft`]:
-                        state.classifyId === item?.classifyId
-                    })}
-                  >
-                    {item.classifyName}
-                  </Text>
-                </View>
-              </View>
-            )
-          })}
-        </ScrollView>
-      </View>
-      <View className={`${classPrefix}-refresher`}>
-        <ScPullDownRefresh
-          id='pull-down-refresh'
-          // query={getGoodsList}
-          // onSwitch={onNextfresh}
+      {showMethod === 'TOP_NAV' ? (
+        <TopNav
+          list={state.list}
           onListChange={onListChange}
-          canPullUpSwitch
-          auto={false}
-          defaultPageSize={500}
-          loadingTexts={[
-            '下拉至上一个分类',
-            '释放至上一个分类',
-            '正在刷新',
-            '正在刷新'
-          ]}
-          ref={node => {
-            ref.current = node
-          }}
-        >
-          <ComGoodsLayout list={state.list}></ComGoodsLayout>
-        </ScPullDownRefresh>
-      </View>
+          onClassifyChange={onClassifyChange}
+          catalogList={state.catalogList}
+          classifyId={state.classifyId}
+          {...resProps}
+        ></TopNav>
+      ) : (
+        <LeftNav
+          list={state.list}
+          onListChange={onListChange}
+          onClassifyChange={onClassifyChange}
+          catalogList={state.catalogList}
+          classifyId={state.classifyId}
+          {...resProps}
+        ></LeftNav>
+      )}
     </View>
   )
 }

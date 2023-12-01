@@ -1,0 +1,34 @@
+@import '@/style/index.scss'; // 引入基础配置
+
+$com-goods-group-topnav-prefix: 'com-goods-group-topnav';
+
+.#{$com-goods-group-topnav-prefix} {
+  position: relative;
+  width: 100%;
+
+  &-tab {
+    position: relative;
+    margin-bottom: 20px;
+    background-color: $sc-color-bg;
+
+    .sc-tabs__header-view {
+      position: relative;
+      width: 100%;
+    }
+
+    .sc-tabs__item-underline {
+      height: 6px;
+      width: 80px;
+      left: auto;
+    }
+  }
+
+  &-colum {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: $sc-color-bg;
+  }
+}

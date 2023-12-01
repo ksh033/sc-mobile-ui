@@ -1,108 +1,108 @@
-import Taro from "@tarojs/taro";
-import { ScrollView, View } from "@tarojs/components";
-import classnames from "classnames";
-import { CSSProperties, useEffect, useMemo, useState } from "react";
-import compute from "@/utils/compute";
-import ComSwiper from "../ComSwiper";
-import { ComAdImagesItem, ComAdImagesProps, ShowMethod } from "./type";
-import ScImage from "../ScImage";
-import "./index.scss";
-import  {RegAppUIComponent,type AppUIComponents} from '@sceditor/core'
+import Taro from '@tarojs/taro'
+import { ScrollView, View } from '@tarojs/components'
+import classnames from 'classnames'
+import { CSSProperties, useEffect, useMemo, useState } from 'react'
+import compute from '@/utils/compute'
+import ComSwiper from '../ComSwiper'
+import { ComAdImagesItem, ComAdImagesProps, ShowMethod } from './type'
+import ScImage from '../ScImage'
+import './index.scss'
+import { RegAppUIComponent, type AppUIComponents } from '@sceditor/core'
 
 const emptyItem: ComAdImagesItem = {
-  imageId: "empty",
-  key: "empty",
+  imageId: 'empty',
+  key: 'empty',
   imageUrl:
-    "https://img01.yzcdn.cn/public_files/2019/03/05/2b60ed750a93a1bd6e17fc354c86fa78.png",
+    'https://img01.yzcdn.cn/public_files/2019/03/05/2b60ed750a93a1bd6e17fc354c86fa78.png',
   imageThumbUrl:
-    "https://img01.yzcdn.cn/public_files/2019/03/05/2b60ed750a93a1bd6e17fc354c86fa78.png",
+    'https://img01.yzcdn.cn/public_files/2019/03/05/2b60ed750a93a1bd6e17fc354c86fa78.png',
   imageWidth: 750,
-  imageHeight: 400,
-};
+  imageHeight: 400
+}
 
-const emptyList: ComAdImagesItem[] = [emptyItem];
+const emptyList: ComAdImagesItem[] = [emptyItem]
 
-const scrollMap:any = {
+const scrollMap: any = {
   1: 0.88,
   2: 0.4,
   4: 0.305,
   5: 0.23,
-  6: 0.185,
-};
+  6: 0.185
+}
 
 /** 图片广告 */
-const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
+const ComAdImages: AppUIComponents<ComAdImagesProps> = props => {
   const {
-    showMethod = "single",
-    imageStyle = "normal",
-    cornerType = "straight",
+    showMethod = 'single',
+    imageStyle = 'normal',
+    cornerType = 'straight',
     count = 1,
     pageMargin = 0,
     list = [],
     imageMargin = 0,
-    imageFillStyle = "cover",
-    indicator = "1",
-    onItemClick,
-  } = props;
+    imageFillStyle = 'cover',
+    indicator = '1',
+    onItemClick
+  } = props
 
-  const prefixCls = "com-adimages";
+  const prefixCls = 'com-adimages'
 
-  const [innerData, setInnerData] = useState<ComAdImagesItem[]>(emptyList);
+  const [innerData, setInnerData] = useState<ComAdImagesItem[]>(emptyList)
 
   const styles: CSSProperties = useMemo(() => {
-    if (showMethod === "single") {
-      return { paddingLeft: pageMargin, paddingRight: pageMargin };
+    if (showMethod === 'single') {
+      return { paddingLeft: pageMargin, paddingRight: pageMargin }
     }
-    return {};
-  }, [pageMargin, showMethod]);
+    return {}
+  }, [pageMargin, showMethod])
 
   const radius = useMemo(() => {
-    return cornerType === "round" ? 16 : 0;
-  }, [cornerType]);
+    return cornerType === 'round' ? 16 : 0
+  }, [cornerType])
 
   const screenWidth = useMemo(() => {
-    let windowWidth = Taro.getSystemInfoSync().windowWidth;
+    let windowWidth = Taro.getSystemInfoSync().windowWidth
     if (windowWidth > 750) {
-      windowWidth = 375;
+      windowWidth = 375
     }
-    return windowWidth;
-  }, []);
+    return windowWidth
+  }, [])
 
   const height = useMemo(() => {
-    let item: ComAdImagesItem | null = null;
+    let item: ComAdImagesItem | null = null
     if (Array.isArray(list) && list.length > 0) {
-      item = list[0];
+      item = list[0]
     }
     if (item) {
       return Math.ceil(
         (screenWidth / Number(item.imageWidth || 0)) *
           Number(item.imageHeight || 0)
-      );
+      )
     }
-    return 200;
-  }, [JSON.stringify(innerData)]);
+    return 200
+  }, [JSON.stringify(innerData)])
 
   const swiperHeight = useMemo(() => {
-    return compute.subtract(height, pageMargin * 2);
-  }, [height, pageMargin]);
+    return compute.subtract(height, pageMargin * 2)
+  }, [height, pageMargin])
 
   const scrollHeight = useMemo(() => {
-    return Math.round(height * (scrollMap[count] || 1));
-  }, [count, height]);
+    return Math.round(height * (scrollMap[count] || 1))
+  }, [count, height])
 
   useEffect(() => {
     if (Array.isArray(list)) {
-      const index = list.findIndex((it) => it.imageUrl != null);
-      console.log("index", index);
+      const index = list.findIndex(it => it.imageUrl != null)
+      console.log('index', index)
       if (index > -1) {
-        setInnerData(list);
+        setInnerData(list)
       } else {
-        setInnerData(emptyList);
+        setInnerData(emptyList)
       }
     } else {
-      setInnerData(emptyList);
+      setInnerData(emptyList)
     }
-  }, [JSON.stringify(list)]);
+  }, [JSON.stringify(list)])
 
   /** 单个图片连续处理 */
   const singleRender = (rlist: ComAdImagesItem[]) => {
@@ -115,13 +115,13 @@ const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
               key={`single-${index}-${it.key}`}
               style={{ marginBottom: imageMargin }}
             >
-              <ScImage src={it.imageUrl || ""} radius={radius}></ScImage>
+              <ScImage src={it.imageUrl || ''} radius={radius}></ScImage>
             </View>
-          );
+          )
         })}
       </View>
-    );
-  };
+    )
+  }
   /**轮播图组件 */
   const swiperRender = (rlist: ComAdImagesItem[]) => {
     return (
@@ -134,8 +134,8 @@ const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
           margin={pageMargin}
         ></ComSwiper>
       </View>
-    );
-  };
+    )
+  }
   /** 滚动组件 */
   const scrollRender = (rlist: ComAdImagesItem[]) => {
     return (
@@ -145,7 +145,7 @@ const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
           style={{
             height: scrollHeight,
             paddingLeft: pageMargin,
-            paddingRight: pageMargin,
+            paddingRight: pageMargin
           }}
           scrollX
           enableFlex
@@ -156,15 +156,14 @@ const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
             return (
               <View
                 className={classnames({
-                  [`${prefixCls}-scroll-item`]: true,
+                  [`${prefixCls}-scroll-item`]: true
                 })}
-                id={item.linkValue}
                 style={{
                   width: Math.round(
                     (scrollHeight * Number(item.imageWidth || 0)) /
                       Number(item.imageHeight || 1)
                   ),
-                  marginRight: imageMargin,
+                  marginRight: imageMargin
                 }}
                 key={`com-img-item-g2-${item.key}-${idx}`}
               >
@@ -175,39 +174,39 @@ const ComAdImages:AppUIComponents<ComAdImagesProps> = (props) => {
                 >
                   <ScImage
                     fit={imageFillStyle}
-                    src={item.imageUrl || ""}
+                    src={item.imageUrl || ''}
                     height={scrollHeight}
                     radius={radius}
                   />
                 </View>
               </View>
-            );
+            )
           })}
         </ScrollView>
       </View>
-    );
-  };
+    )
+  }
   /** 渲染函数 */
   const render = (type: ShowMethod, rlist: ComAdImagesItem[]) => {
-    console.log("list", rlist);
+    console.log('list', rlist)
     const map = {
       single: singleRender,
       swiper: swiperRender,
-      scroll: scrollRender,
-    };
-    return map[type] ? map[type](rlist) : null;
-  };
+      scroll: scrollRender
+    }
+    return map[type] ? map[type](rlist) : null
+  }
 
   return (
     <View
       className={classnames(prefixCls, {
-        [`${prefixCls}-shadow`]: imageStyle === "shadow",
+        [`${prefixCls}-shadow`]: imageStyle === 'shadow'
       })}
-      style={showMethod !== "scroll" ? styles : {}}
+      style={showMethod !== 'scroll' ? styles : {}}
     >
       {render(showMethod, innerData)}
     </View>
-  );
-};
-ComAdImages.cmpType='AdImage'
-export default RegAppUIComponent(ComAdImages);
+  )
+}
+ComAdImages.cmpType = 'AdImage'
+export default RegAppUIComponent(ComAdImages)

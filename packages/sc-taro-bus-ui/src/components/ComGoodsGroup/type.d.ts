@@ -1,5 +1,6 @@
 import { ComGoodsItemDataProps } from '../ComBaseGoods/type'
 import { ComGoodsLayoutProps } from '../ComGoodsLayout/type'
+import { ClassifyDTO } from '../types/goods'
 
 export type ComGoodsGroupState = {
   /** 一级分类列表 */
@@ -8,6 +9,8 @@ export type ComGoodsGroupState = {
   list: ComGoodsItemDataProps[]
   /** 选中一级分类id */
   classifyId?: string
+  /** 选中的index */
+  currentIndex?: number
 }
 /** 商品组数据 */
 export type ComGoodsGroupProps = ComGoodsLayoutProps & {
